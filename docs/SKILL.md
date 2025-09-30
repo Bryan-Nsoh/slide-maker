@@ -148,6 +148,17 @@ When creating a new PowerPoint presentation from scratch, use the **html2pptx** 
 - **Full-slide layout**: Let the featured content (chart/table) take up the entire slide for maximum impact and readability
 - **NEVER vertically stack**: Do not place charts/tables below text in a single column - this causes poor readability and layout issues
 
+### Rendering LaTeX or complex formulas
+
+When you need math or uncommon notation, rasterize it before adding to HTML. The recommended workflow uses Matplotlib:
+
+1. `import matplotlib; matplotlib.use('Agg')`
+2. Create a figure with your preferred background (e.g., burnt orange) and add LaTeX text via `ax.text(...)`.
+3. Disable axes and save to `workspace/images/formulas/` at ≥200&nbsp;DPI.
+4. Reference the PNG in your slide with `<img src="../images/formulas/example.png">` and supply plain-language captions explaining the formula.
+
+Matplotlib honours MathText, so you can write expressions like `r"$\Delta \text{VWC}_t = \text{VWC}_t - \text{VWC}_{t-1}$"`. Converting to PNG avoids html2pptx limitations around MathML or CSS styling.
+
 ### Workflow
 1. **MANDATORY - READ ENTIRE FILE**: Read [`html2pptx.md`](html2pptx.md) completely from start to finish. **NEVER set any range limits when reading this file.** Read the full file content for detailed syntax, critical formatting rules, and best practices before proceeding with presentation creation.
 2. Create an HTML file for each slide with proper dimensions (e.g., 720pt × 405pt for 16:9)

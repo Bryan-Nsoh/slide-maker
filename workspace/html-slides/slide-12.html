@@ -2,16 +2,18 @@
 <html>
 <head>
 <style>
-html { background: #ffffff; }
+html { background: #FFF7F0; }
 body {
   width: 720pt; height: 405pt; margin: 0; padding: 0;
-  background: #F8F9FA;
+  background: #FFF7F0;
   font-family: Arial, sans-serif;
+  color: #433024;
   display: flex;
 }
 .header {
-  background: #16A085;
-  padding: 20pt 40pt;
+  background: #35190B;
+  color: #FFF5EB;
+  padding: 22pt 48pt;
   position: absolute;
   top: 0;
   left: 0;
@@ -21,82 +23,44 @@ h1 {
   font-size: 32pt;
   font-weight: bold;
   margin: 0;
-  color: #FFFFFF;
 }
 .content {
-  margin: 100pt 40pt 120pt 40pt;
+  margin: 115pt 60pt 75pt 60pt;
   display: flex;
-  gap: 24pt;
+  flex-direction: column;
+  gap: 16pt;
+  align-items: center;
 }
-.left, .right {
+.figure {
   flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFE7D1;
+  border: 2pt solid #C24B0A;
+  padding: 12pt;
 }
-h2 {
-  font-size: 20pt;
-  font-weight: bold;
-  color: #2C3E50;
-  margin: 0 0 15pt 0;
+.figure img {
+  max-width: 540pt;
+  max-height: 200pt;
 }
-p {
-  font-size: 14pt;
-  color: #2C3E50;
-  margin: 8pt 0;
-  line-height: 1.5;
-}
-.method-box {
-  background: #FFFFFF;
-  padding: 16pt;
-  border: 2pt solid #E67E22;
-  margin: 12pt 0 0 0;
-}
-ul {
-  margin: 8pt 0 0 0;
-  padding-left: 22pt;
-}
-li {
-  font-size: 13pt;
-  color: #2C3E50;
-  margin: 6pt 0;
-  line-height: 1.4;
-}
-.code-box {
-  background: #2C3E50;
-  padding: 10pt;
-  font-family: Courier New, monospace;
-  font-size: 10pt;
-  color: #FFFFFF;
+.caption {
+  font-size: 13.5pt;
+  line-height: 1.3;
+  text-align: center;
   margin: 0;
-}
-.code-box p {
-  margin: 4pt 0;
 }
 </style>
 </head>
 <body>
 <div class="header">
-  <h1>Spike Detection</h1>
+  <h1>PCHIP Fills VWC Gaps Smoothly</h1>
 </div>
 <div class="content">
-  <div class="left">
-    <h2>Detecting VWC Spikes (Irrigation & Rainfall Events)</h2>
-    <div class="method-box">
-      <p><b>Purpose:</b> Capture sudden water injection events as binary features</p>
-      <ul>
-        <li><b>Spike Up:</b> VWC_06/18/30 rising >1.15× day-1 flagged fertigation and rain pulses</li>
-        <li><b>Spike Down:</b> >15% drop reveals drainage events or unplugged probes</li>
-        <li>Threshold tuned from 2023-08-03 fertigation run (0.22 → 0.28 m³/m³)</li>
-      </ul>
-    </div>
-  </div>
-  <div class="right">
-    <h2>Implementation Sketch</h2>
-    <div class="code-box">
-      <p>for col in VWC_COLUMNS:</p>
-      <p>    up = df[col] > df[col].shift(1) * 1.15</p>
-      <p>    down = df[col] < df[col].shift(1) * 0.85</p>
-      <p>    df[f"{col}_spike_up"] = up.astype(int)</p>
-      <p>    df[f"{col}_spike_down"] = down.astype(int)</p>
-    </div>
+  <p class="caption">Daily averages for plot 2003 after interpolation. Because we currently fill every day, irrigation spikes get softened—masking wet days before PCHIP would preserve those jumps.</p>
+  <div class="figure">
+    <img src="../images/eda_assets/plot2003_daily_mean_and_interpolated_vwc_all_depths.png" alt="Daily VWC with PCHIP interpolation by depth for plot 2003">
   </div>
 </div>
 </body>

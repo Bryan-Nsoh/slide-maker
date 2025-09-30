@@ -2,102 +2,84 @@
 <html>
 <head>
 <style>
-html { background: #ffffff; }
+html { background: #FFF7F0; }
 body {
   width: 720pt; height: 405pt; margin: 0; padding: 0;
-  background: #F8F9FA;
+  background: #FFF7F0;
   font-family: Arial, sans-serif;
+  color: #433024;
   display: flex;
 }
 .header {
-  background: #16A085;
-  padding: 20pt 40pt;
+  background: #35190B;
+  color: #FFF5EB;
+  padding: 22pt 48pt;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
 }
 h1 {
-  font-size: 32pt;
+  font-size: 34pt;
   font-weight: bold;
   margin: 0;
-  color: #FFFFFF;
 }
 .content {
-  margin: 100pt 40pt 90pt 40pt;
+  margin: 110pt 60pt 80pt 60pt;
   display: flex;
-  gap: 24pt;
+  flex-direction: column;
+  gap: 14pt;
 }
-.left, .right {
-  flex: 1;
-}
-h2 {
-  font-size: 20pt;
-  font-weight: bold;
-  color: #2C3E50;
-  margin: 0 0 15pt 0;
-}
-p {
-  font-size: 13.5pt;
-  color: #2C3E50;
-  margin: 7pt 0;
-  line-height: 1.5;
-}
-.highlight-box {
-  background: #E8F5E9;
-  padding: 16pt;
-  border-left: 5pt solid #16A085;
-  margin: 12pt 0 0 0;
-}
-ul {
-  margin: 6pt 0 0 0;
-  padding-left: 22pt;
-}
-li {
-  font-size: 12.5pt;
-  color: #2C3E50;
-  margin: 3pt 0;
-  line-height: 1.3;
-}
-.code-box {
-  background: #2C3E50;
-  padding: 10pt;
-  font-family: Courier New, monospace;
-  font-size: 10pt;
-  color: #FFFFFF;
+.paragraph {
+  font-size: 16pt;
+  line-height: 1.45;
   margin: 0;
 }
-.code-box p {
-  margin: 4pt 0;
+.list {
+  margin: 0;
+  padding-left: 22pt;
+  display: flex;
+  flex-direction: column;
+  gap: 5pt;
+}
+.list li {
+  font-size: 14.5pt;
+  line-height: 1.35;
+}
+.formula-card {
+  align-self: center;
+  background: #4B2410;
+  border: 3pt solid #C24B0A;
+  border-radius: 10pt;
+  padding: 10pt 14pt;
+  text-align: center;
+}
+.formula-card img {
+  width: 260pt;
+  height: auto;
+}
+.formula-card p {
+  margin: 6pt 0 0 0;
+  font-size: 12.5pt;
+  line-height: 1.28;
+  color: #FFF5EB;
 }
 </style>
 </head>
 <body>
 <div class="header">
-  <h1>Time Since Precipitation</h1>
+  <h1>Smoothing & Daily Change Features</h1>
 </div>
 <div class="content">
-  <div class="left">
-    <h2>Capturing Temporal Distance from Water Events</h2>
-    <div class="highlight-box">
-      <p><b>Rationale:</b> Time since last significant input reveals how quickly soil moisture should decay</p>
-    </div>
-    <p><b>Two thresholds tracked:</b></p>
-    <ul>
-      <li>Days since >0.2 in precip (5 mm irrigation setpoint)</li>
-      <li>Days since half-max storm (0.5 × seasonal peak)</li>
-    </ul>
+  <p class="paragraph">After interpolation we smooth each depth with a 20-day Savitzky–Golay filter so the signal reflects crop-scale trends instead of probe jitter.</p>
+  <div class="formula-card">
+    <img src="../images/formulas/formula_dvwc.png" alt="Delta VWC formula">
+    <p>ΔVWC captures how quickly the profile is drying or being refilled.</p>
   </div>
-  <div class="right">
-    <h2>Feature Engineering Snippet</h2>
-    <div class="code-box">
-      <p>mask = (df['precip_irrig'] > 0.2).astype(int)</p>
-      <p>df['time_since_last_precip'] = (</p>
-      <p>    mask.cumsum() - mask.replace(0, None).cumsum()</p>
-      <p>).fillna(0)</p>
-      <p>df['precip_irrig_cum_7day'] = df['precip_irrig'].rolling(7).sum()</p>
-    </div>
-  </div>
+  <ul class="list">
+    <li>Positive ΔVWC flags irrigation or rain recharge events.</li>
+    <li>Negative ΔVWC matches evapotranspiration drawdown between irrigations.</li>
+  </ul>
 </div>
 </body>
 </html>

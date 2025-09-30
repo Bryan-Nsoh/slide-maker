@@ -2,16 +2,18 @@
 <html>
 <head>
 <style>
-html { background: #ffffff; }
+html { background: #FFF7F0; }
 body {
   width: 720pt; height: 405pt; margin: 0; padding: 0;
-  background: #F8F9FA;
+  background: #FFF7F0;
   font-family: Arial, sans-serif;
+  color: #433024;
   display: flex;
 }
 .header {
-  background: #16A085;
-  padding: 20pt 40pt;
+  background: #35190B;
+  color: #FFF5EB;
+  padding: 22pt 48pt;
   position: absolute;
   top: 0;
   left: 0;
@@ -21,67 +23,58 @@ h1 {
   font-size: 32pt;
   font-weight: bold;
   margin: 0;
-  color: #FFFFFF;
 }
 .content {
-  margin: 100pt 40pt 100pt 40pt;
+  margin: 120pt 50pt 70pt 50pt;
+  display: flex;
+  flex-direction: column;
+  gap: 16pt;
+  align-items: center;
 }
-h2 {
-  font-size: 20pt;
-  font-weight: bold;
-  color: #2C3E50;
-  margin: 0 0 15pt 0;
+.grid {
+  display: flex;
+  gap: 12pt;
+  width: 100%;
+  justify-content: center;
 }
-p {
-  font-size: 13pt;
-  color: #2C3E50;
-  margin: 7pt 0;
-  line-height: 1.4;
+.panel {
+  flex: 0 0 160pt;
+  background: #FFE7D1;
+  border: 2pt solid #C24B0A;
+  padding: 10pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.pipeline {
-  margin: 6pt 0 12pt 0;
-  padding-left: 24pt;
+.panel img {
+  max-width: 140pt;
+  max-height: 140pt;
 }
-.pipeline li {
-  font-size: 12.8pt;
-  color: #2C3E50;
-  margin: 3pt 0;
-  line-height: 1.28;
-}
-.code-box {
-  background: #2C3E50;
-  padding: 8pt;
-  font-family: Courier New, monospace;
-  font-size: 8.5pt;
-  color: #FFFFFF;
-  margin: 6pt 0;
-}
-.code-inline {
-  font-family: Courier New, monospace;
-  background: #E0E0E0;
-  padding: 2pt 6pt;
-  border-radius: 3pt;
+.caption {
+  font-size: 14pt;
+  line-height: 1.35;
+  text-align: center;
+  margin: 0;
 }
 </style>
 </head>
 <body>
 <div class="header">
-  <h1>Reverse Transformation</h1>
+  <h1>Spike Flags by Depth · Plot 2014</h1>
 </div>
 <div class="content">
-  <h2>Converting Predictions Back to %VWC</h2>
-  <p>We persist transformation metadata with the model so predictions can be reconstructed in volumetric water content units.</p>
-  <ol class="pipeline">
-    <li>Inverse-scale each column using buffered MinMax scalers</li>
-    <li>Add the stored mean μ for each VWC depth/plot</li>
-    <li>Cumsum ΔVWC and add the initial value to recover absolute %VWC</li>
-  </ol>
-  <h2>Notebook Routine</h2>
-  <div class="code-box">
-    <p>scaled = meta['scalers'][col].inverse_transform(df[[col]])</p>
-    <p>df[col] = scaled.cumsum() + meta['initial_values'].get(col, 0) + meta['means'][col]</p>
+  <div class="grid">
+    <div class="panel">
+      <img src="../images/eda_assets/plot2014_depth06_spike_detection_flags.png" alt="Spike detection flags for depth 6 cm">
+    </div>
+    <div class="panel">
+      <img src="../images/eda_assets/plot2014_depth18_spike_detection_flags.png" alt="Spike detection flags for depth 18 cm">
+    </div>
+    <div class="panel">
+      <img src="../images/eda_assets/plot2014_depth30_spike_detection_flags.png" alt="Spike detection flags for depth 30 cm">
+    </div>
   </div>
-  <p style="font-size: 12pt; color: #2C3E50; margin-top: 4pt;">Metadata stores <span class="code-inline">means</span>, <span class="code-inline">scalers</span>, <span class="code-inline">initial_values</span>, and column order.</p>
+  <p class="caption">Each depth responds differently. The binary flags align with the ΔVWC spikes we saw earlier, giving the model a crisp indicator of irrigation timing.</p>
 </div>
 </body>
 </html>

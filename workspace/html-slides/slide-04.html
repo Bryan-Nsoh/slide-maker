@@ -2,68 +2,62 @@
 <html>
 <head>
 <style>
-html { background: #ffffff; }
+html { background: #FFF7F0; }
 body {
   width: 720pt; height: 405pt; margin: 0; padding: 0;
-  background: #F8F9FA;
+  background: #FFF7F0;
   font-family: Arial, sans-serif;
+  color: #433024;
   display: flex;
 }
 .header {
-  background: #16A085;
-  padding: 20pt 40pt;
+  background: #35190B;
+  color: #FFF5EB;
+  padding: 22pt 48pt;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
 }
 h1 {
-  font-size: 32pt;
+  font-size: 34pt;
   font-weight: bold;
   margin: 0;
-  color: #FFFFFF;
 }
 .content {
-  margin: 100pt 40pt 130pt 40pt;
-  width: 640pt;
+  margin: 120pt 60pt 80pt 60pt;
+  display: flex;
+  flex-direction: column;
+  gap: 18pt;
 }
-.image-placeholder {
-  width: 640pt;
-  height: 215pt;
-  background: #E0E0E0;
-  border: 3pt dashed #16A085;
+.placeholder {
+  flex: 1;
+  border: 3pt dashed #C24B0A;
+  background: #FFE7D1;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  text-align: center;
+  padding: 24pt;
 }
-p {
+.placeholder p {
+  margin: 0;
   font-size: 16pt;
-  color: #666;
-  margin: 10pt;
-  text-align: center;
-}
-.desc {
-  font-size: 13pt;
-  color: #2C3E50;
-  margin-top: 10pt;
-  text-align: center;
-}
-.image-placeholder p {
-  margin: 6pt 10pt;
+  line-height: 1.45;
+  color: #7A3A14;
 }
 </style>
 </head>
 <body>
 <div class="header">
-  <h1>Data Collection Pipeline</h1>
+  <h1>Sensor to Cloud Data Pipeline</h1>
 </div>
 <div class="content">
-  <div class="image-placeholder">
-    <p><b>IMAGE: Complete Data Flow Diagram</b></p>
-    <p>Sensors → Data Logger → Gateway → Wireless → Cloud</p>
+  <p style="font-size: 16pt; line-height: 1.45; margin: 0;">Insert the field instrumentation diagram here: soil moisture probes at 6/18/30 cm, canopy temperature sensors, CR1000X logger, LoRa gateway, and the cloud database feeding this analysis.</p>
+  <div class="placeholder">
+    <p>IMAGE PLACEHOLDER — Full pipeline diagram
+Sensors → Datalogger → Gateway → Wireless backhaul → Cloud data lake</p>
   </div>
-  <p class="desc">Full pipeline showing VWC sensors, canopy temperature sensors, data logger, wireless gateway, and cloud storage</p>
 </div>
 </body>
 </html>

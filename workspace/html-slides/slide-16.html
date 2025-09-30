@@ -2,111 +2,73 @@
 <html>
 <head>
 <style>
-html { background: #ffffff; }
+html { background: #FFF7F0; }
 body {
   width: 720pt; height: 405pt; margin: 0; padding: 0;
-  background: #F8F9FA;
+  background: #FFF7F0;
   font-family: Arial, sans-serif;
+  color: #433024;
   display: flex;
 }
 .header {
-  background: #16A085;
-  padding: 20pt 40pt;
+  background: #35190B;
+  color: #FFF5EB;
+  padding: 22pt 48pt;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
 }
 h1 {
-  font-size: 32pt;
+  font-size: 34pt;
   font-weight: bold;
   margin: 0;
-  color: #FFFFFF;
 }
 .content {
-  margin: 100pt 40pt 115pt 40pt;
+  margin: 120pt 60pt 80pt 60pt;
   display: flex;
-  gap: 26pt;
+  flex-direction: column;
+  gap: 18pt;
 }
-.left {
-  flex: 1;
+.paragraph {
+  font-size: 16pt;
+  line-height: 1.45;
+  margin: 0;
 }
-.right {
-  flex: 1;
+.list {
+  margin: 0;
+  padding-left: 24pt;
 }
-h2 {
-  font-size: 20pt;
-  font-weight: bold;
-  color: #2C3E50;
-  margin: 0 0 15pt 0;
-}
-.formula-box {
-  background: #FFFFFF;
-  padding: 13pt;
-  border: 2pt solid #16A085;
-  margin: 10pt 0;
-  text-align: center;
-}
-p {
-  font-size: 13pt;
-  color: #2C3E50;
-  margin: 6pt 0;
+.list li {
+  font-size: 15pt;
   line-height: 1.4;
-}
-.code {
-  font-family: Courier New, monospace;
-  font-size: 11pt;
-  color: #E67E22;
   margin: 4pt 0;
 }
-.benefits-columns {
-  display: flex;
-  gap: 18pt;
-  margin: 8pt 0 0 0;
+.callout {
+  background: #FFE7D1;
+  border-left: 6pt solid #C24B0A;
+  padding: 14pt 18pt;
 }
-.benefits-columns ul {
+.callout p {
   margin: 0;
-  padding-left: 20pt;
-  flex: 1;
-}
-.benefits-columns li {
-  font-size: 12pt;
-  color: #2C3E50;
-  margin: 3pt 0;
-  line-height: 1.3;
+  font-size: 15pt;
+  line-height: 1.4;
 }
 </style>
 </head>
 <body>
 <div class="header">
-  <h1>Scaling: MinMax with Buffer</h1>
+  <h1>Flagging Spikes for Irrigation Awareness</h1>
 </div>
 <div class="content">
-  <div class="left">
-    <h2>Why Scaling Matters</h2>
-    <div class="benefits-columns">
-      <ul>
-        <li>LSTM trains faster when VWC_06/18/30, canopy_temp, precip share [0,1] scale</li>
-        <li>Buffered scaling avoids exploding gradients when a block floods</li>
-      </ul>
-      <ul>
-        <li>Cross-plot mixing needs consistent ranges despite differing soil textures</li>
-        <li>Keeps irrigation pulses comparable with weather covariates</li>
-      </ul>
-    </div>
-    <h2 style="margin-top: 20pt;">Buffer Rationale</h2>
-    <p>30% buffer keeps injected irrigation scenarios and rare storms within scaler bounds</p>
-  </div>
-  <div class="right">
-    <h2>MinMax Formula</h2>
-    <div class="formula-box">
-      <p>range = max - min</p>
-      <p>buffer = 0.3 × range</p>
-      <p style="font-weight: bold;">scaled = (x - (min - buffer)) / ((max + buffer) - (min - buffer))</p>
-    </div>
-    <p class="code">buffered_min = min_val - buffer  # per column, per plot</p>
-    <p class="code">buffered_max = max_val + buffer</p>
-    <p class="code">scaled = (data - buffered_min) / (buffered_max - buffered_min)</p>
+  <p class="paragraph">Sudden jumps in VWC usually mean we irrigated, injected fertilizer, or caught a thunderstorm. The model needs to recognize these events explicitly.</p>
+  <ul class="list">
+    <li><b>Spike up:</b> the code marks a recharge when VWC today is 1.15× yesterday.</li>
+    <li><b>Spike down:</b> a 15% drop flags drainage or unplugged probes.</li>
+    <li>Flags are computed per depth so shallow and deep responses stay distinct.</li>
+  </ul>
+  <div class="callout">
+    <p>15% came from the 2023‑08‑03 fertigation run. If we see missed events, we can tune the multiplier in <span style="font-family: 'Courier New', monospace;">process_data_for_plot</span>.</p>
   </div>
 </div>
 </body>

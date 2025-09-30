@@ -2,93 +2,73 @@
 <html>
 <head>
 <style>
-html { background: #ffffff; }
+html { background: #FFF7F0; }
 body {
   width: 720pt; height: 405pt; margin: 0; padding: 0;
-  background: #F8F9FA;
+  background: #FFF7F0;
   font-family: Arial, sans-serif;
+  color: #433024;
   display: flex;
 }
 .header {
-  background: #16A085;
-  padding: 20pt 40pt;
+  background: #35190B;
+  color: #FFF5EB;
+  padding: 22pt 48pt;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
 }
 h1 {
-  font-size: 32pt;
+  font-size: 34pt;
   font-weight: bold;
   margin: 0;
-  color: #FFFFFF;
 }
 .content {
-  margin: 100pt 40pt 110pt 40pt;
+  margin: 110pt 60pt 80pt 60pt;
+  display: flex;
+  flex-direction: column;
+  gap: 16pt;
 }
-h2 {
-  font-size: 18pt;
-  font-weight: bold;
-  color: #2C3E50;
-  margin: 0 0 12pt 0;
+.lead {
+  font-size: 16pt;
+  line-height: 1.45;
+  margin: 0;
 }
-p {
-  font-size: 14pt;
-  color: #2C3E50;
-  line-height: 1.3;
-  margin: 0 0 10pt 0;
+.formula-card {
+  align-self: center;
+  background: #4B2410;
+  border: 3pt solid #C24B0A;
+  border-radius: 12pt;
+  padding: 12pt 20pt;
 }
-.formula-box {
-  background: #FFFFFF;
-  padding: 10pt;
-  border: 2pt solid #16A085;
-  margin: 12pt 0;
+.formula-card img {
+  width: 360pt;
+  height: auto;
+}
+.caption {
+  font-size: 13.5pt;
+  line-height: 1.35;
+  margin: 0;
   text-align: center;
+  color: #FFF5EB;
 }
-.formula {
+.point {
   font-size: 15pt;
-  font-family: Georgia, serif;
-  color: #2C3E50;
-  margin: 8pt 0;
-}
-.box {
-  background: #E8F5E9;
-  padding: 8pt;
-  margin-top: 12pt;
-  border-left: 5pt solid #16A085;
-}
-ul {
-  margin: 8pt 0;
-  padding-left: 25pt;
-}
-li {
-  font-size: 13pt;
-  color: #2C3E50;
-  margin: 5pt 0;
+  line-height: 1.4;
+  margin: 0;
 }
 </style>
 </head>
 <body>
 <div class="header">
-  <h1>Problem Statement</h1>
+  <h1>Why Predict VWC Four Days Ahead?</h1>
 </div>
 <div class="content">
-  <h2>Predicting Volumetric Water Content (VWC)</h2>
-  <p>Goal: Predict soil moisture 4 days ahead to prevent water stress</p>
-
-  <div class="formula-box">
-    <p><b>Soil Water Stress Index (SWSI)</b></p>
-    <p class="formula">SWSI = 1 - (θ / θ<sub>FC</sub>)</p>
-    <p style="font-size: 12pt; color: #666;">θ = current VWC, θ<sub>FC</sub> = field capacity</p>
-  </div>
-
-  <div class="box">
-    <p style="font-size: 13pt; margin-bottom: 6pt;"><b>Why predict VWC?</b></p>
-    <ul style="margin: 5pt 0;">
-      <li style="font-size: 12pt; margin: 4pt 0;">Direct sensor measurements</li>
-      <li style="font-size: 12pt; margin: 4pt 0;">Can derive SWSI from VWC</li>
-      <li style="font-size: 12pt; margin: 4pt 0;">Preempt stress over 4-day cycle</li>
-    </ul>
+  <p class="lead">Growers rely on the Soil Water Stress Index (SWSI) to plan irrigation. We forecast volumetric water content (VWC) four days ahead, then derive SWSI so agronomists can act before stress appears.</p>
+  <div class="formula-card">
+    <img src="../images/formulas/formula_swsi.png" alt="SWSI equals one minus theta over theta at field capacity">
+    <p class="caption">Accurate VWC forecasts keep the SWSI ratio inside the safe band for each plot.</p>
   </div>
 </div>
 </body>

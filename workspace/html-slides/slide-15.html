@@ -2,96 +2,63 @@
 <html>
 <head>
 <style>
-html { background: #ffffff; }
+html { background: #FFF7F0; }
 body {
   width: 720pt; height: 405pt; margin: 0; padding: 0;
-  background: #F8F9FA;
+  background: #FFF7F0;
   font-family: Arial, sans-serif;
+  color: #433024;
   display: flex;
 }
 .header {
-  background: #16A085;
-  padding: 20pt 40pt;
+  background: #35190B;
+  color: #FFF5EB;
+  padding: 22pt 48pt;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
 }
 h1 {
-  font-size: 32pt;
+  font-size: 34pt;
   font-weight: bold;
   margin: 0;
-  color: #FFFFFF;
 }
 .content {
-  margin: 100pt 40pt 110pt 40pt;
+  margin: 100pt 60pt 90pt 60pt;
+  display: flex;
+  flex-direction: column;
+  gap: 14pt;
 }
-h2 {
-  font-size: 20pt;
-  font-weight: bold;
-  color: #2C3E50;
-  margin: 0 0 15pt 0;
+.paragraph {
+  font-size: 16pt;
+  line-height: 1.45;
+  margin: 0;
 }
-p {
-  font-size: 13pt;
-  color: #2C3E50;
-  margin: 6pt 0;
-  line-height: 1.4;
+.figure {
+  width: 100%;
+  background: #FFE7D1;
+  border: 2pt solid #C24B0A;
+  padding: 10pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.transform-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16pt;
-}
-.transform-box {
-  background: #FFF3E0;
-  padding: 12pt;
-  border-left: 5pt solid #E67E22;
-}
-ul {
-  margin: 8pt 0;
-  padding-left: 22pt;
-}
-li {
-  font-size: 13pt;
-  color: #2C3E50;
-  margin: 6pt 0;
-  line-height: 1.4;
-}
-.code-box {
-  background: #2C3E50;
-  padding: 12pt;
-  font-family: Courier New, monospace;
-  font-size: 11pt;
-  color: #FFFFFF;
-  margin: 10pt 0;
+.figure img {
+  max-width: 520pt;
+  max-height: 160pt;
 }
 </style>
 </head>
 <body>
 <div class="header">
-  <h1>Data Transformations</h1>
+  <h1>ΔVWC Highlights Recharge Events</h1>
 </div>
 <div class="content">
-  <h2>Preparing Data for Neural Network</h2>
-    <div class="transform-grid">
-      <div class="transform-box">
-        <p><b>1. Mean Subtraction</b></p>
-        <p>Store μ for VWC_06/18/30 per plot, subtract so LSTM sees anomalies not absolute moisture</p>
-      </div>
-      <div class="transform-box">
-        <p><b>2. Derivative Features</b></p>
-        <p>Add ΔVWC columns via diff() to encode daily depletion velocity after irrigation</p>
-      </div>
-      <div class="transform-box">
-        <p><b>3. MinMax Scaling</b></p>
-        <p>Scale channels to [0,1] with 30% buffer so storms and injections stay in range</p>
-      </div>
-      <div class="transform-box">
-        <p><b>4. Log Transform</b></p>
-        <p>Use log(precip_irrig + 1) to convert skewed irrigation pulses into learnable increments</p>
-      </div>
-    </div>
+  <p class="paragraph">After smoothing, the notebook takes a simple first difference to see how fast moisture is changing. Positive spikes flag irrigation or rain; negative runs trace evapotranspiration between events. If the signal ever gets noisy, we could switch to centred or multi-day slopes.</p>
+  <div class="figure">
+    <img src="../images/eda_assets/plot2003_derivative_of_smoothed_vwc_all_depths.png" alt="Plot of daily VWC derivatives for plot 2003">
+  </div>
 </div>
 </body>
 </html>

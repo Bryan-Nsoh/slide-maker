@@ -2,16 +2,18 @@
 <html>
 <head>
 <style>
-html { background: #ffffff; }
+html { background: #FFF7F0; }
 body {
   width: 720pt; height: 405pt; margin: 0; padding: 0;
-  background: #F8F9FA;
+  background: #FFF7F0;
   font-family: Arial, sans-serif;
+  color: #433024;
   display: flex;
 }
 .header {
-  background: #16A085;
-  padding: 20pt 40pt;
+  background: #35190B;
+  color: #FFF5EB;
+  padding: 22pt 48pt;
   position: absolute;
   top: 0;
   left: 0;
@@ -21,98 +23,45 @@ h1 {
   font-size: 32pt;
   font-weight: bold;
   margin: 0;
-  color: #FFFFFF;
 }
+
 .content {
-  margin: 100pt 40pt 80pt 40pt;
+  margin: 115pt 60pt 75pt 60pt;
   display: flex;
-  gap: 24pt;
+  flex-direction: column;
+  gap: 16pt;
+  align-items: center;
 }
-.left, .right {
+.figure {
   flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFE7D1;
+  border: 2pt solid #C24B0A;
+  padding: 12pt;
 }
-h2 {
-  font-size: 20pt;
-  font-weight: bold;
-  color: #2C3E50;
-  margin: 0 0 15pt 0;
+.figure img {
+  max-width: 540pt;
+  max-height: 200pt;
 }
-p {
+.caption {
   font-size: 13.5pt;
-  color: #2C3E50;
-  margin: 7pt 0;
-  line-height: 1.45;
-}
-.method-box {
-  background: #FFFFFF;
-  padding: 14pt;
-  border: 2pt solid #16A085;
-  margin: 10pt 0 0 0;
-}
-.method-box ul {
-  margin: 8pt 0 0 0;
-  padding-left: 20pt;
-}
-.method-box li {
-  font-size: 12pt;
-  color: #2C3E50;
-  margin: 3pt 0;
   line-height: 1.3;
-}
-.formula {
-  font-size: 14pt;
-  font-family: Georgia, serif;
-  color: #2C3E50;
   text-align: center;
-  margin: 12pt 0;
-}
-ul {
-  margin: 8pt 0 0 0;
-  padding-left: 22pt;
-}
-li {
-  font-size: 12.5pt;
-  color: #2C3E50;
-  margin: 5pt 0;
-}
-.code-box {
-  background: #2C3E50;
-  padding: 10pt;
-  font-family: Courier New, monospace;
-  font-size: 10pt;
-  color: #FFFFFF;
   margin: 0;
-}
-.code-box p {
-  margin: 4pt 0;
 }
 </style>
 </head>
 <body>
 <div class="header">
-  <h1>Savitzky-Golay Filter</h1>
+  <h1>Savitzky–Golay Reveals the Trend</h1>
 </div>
 <div class="content">
-  <div class="left">
-    <h2>Smoothing VWC Data</h2>
-    <div class="method-box">
-      <p><b>Purpose:</b> Remove high-frequency noise while preserving irrigation spikes</p>
-      <p class="formula">savgol_filter(x, window=20, polyorder=4, deriv=0)</p>
-      <ul class="method-points">
-        <li><b>Window:</b> 20-day kernel filters 30 cm probe chatter yet keeps seasonal drift</li>
-        <li><b>Order:</b> Degree 4 preserves irrigation spikes lasting 2–3 days</li>
-        <li><b>Derivative:</b> 0 → smooth VWC_06/18/30 prior to differencing</li>
-      </ul>
-    </div>
-  </div>
-  <div class="right">
-    <h2>Implementation Sketch</h2>
-    <div class="code-box">
-      <p>for col in target_columns:</p>
-      <p>    df[col] = savgol_filter(</p>
-      <p>        df[col], window_length=20, polyorder=4, deriv=0</p>
-      <p>    )</p>
-    </div>
+  <p class="caption">Smoothed curves (solid) follow the interpolated series (dotted) while stripping sensor chatter. These become the basis for derivative features.</p>
+  <div class="figure">
+    <img src="../images/eda_assets/plot2003_savgol_smoothed_vwc_vs_interpolated.png" alt="Plot showing smoothed versus interpolated VWC for plot 2003">
   </div>
 </div>
 </body>

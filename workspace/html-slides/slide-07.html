@@ -2,64 +2,77 @@
 <html>
 <head>
 <style>
-html { background: #ffffff; }
+html { background: #FFF7F0; }
 body {
   width: 720pt; height: 405pt; margin: 0; padding: 0;
-  background: #F8F9FA;
+  background: #FFF7F0;
   font-family: Arial, sans-serif;
+  color: #433024;
   display: flex;
 }
 .header {
-  background: #16A085;
-  padding: 20pt 40pt;
+  background: #35190B;
+  color: #FFF5EB;
+  padding: 22pt 48pt;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
 }
 h1 {
-  font-size: 32pt;
+  font-size: 34pt;
   font-weight: bold;
   margin: 0;
-  color: #FFFFFF;
 }
 .content {
-  margin: 100pt 40pt 40pt 40pt;
-  width: 640pt;
+  margin: 120pt 60pt 70pt 60pt;
+  display: flex;
+  gap: 24pt;
 }
-h2 {
-  font-size: 20pt;
-  font-weight: bold;
-  color: #2C3E50;
-  margin: 0 0 20pt 0;
+.summary {
+  width: 200pt;
+  display: flex;
+  flex-direction: column;
+  gap: 12pt;
 }
-.table-placeholder {
-  width: 640pt;
-  height: 220pt;
-  background: #FFF3E0;
-  border: 2pt solid #E67E22;
+.summary h2 {
+  font-size: 18pt;
+  color: #C24B0A;
+  margin: 0;
+}
+.summary p {
+  font-size: 14.5pt;
+  line-height: 1.35;
+  margin: 0;
+}
+.table-wrap {
+  flex: 1;
+  border: 2pt solid #C24B0A;
+  background: #FFE7D1;
+  padding: 12pt;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 }
-p {
-  font-size: 16pt;
-  color: #2C3E50;
-  text-align: center;
-  margin: 6pt 10pt;
+.table-wrap p {
+  margin: 0;
+  font-size: 14pt;
+  color: #7A3A14;
 }
 </style>
 </head>
 <body>
 <div class="header">
-  <h1>Engineered Features</h1>
+  <h1>Engineered Features Fed to the Model</h1>
 </div>
 <div class="content">
-  <h2>Features Created During Data Wrangling</h2>
-  <div id="engineered-table" class="table-placeholder">
-    <p><b>TABLE: Engineered Features</b></p>
-    <p style="font-size: 13pt; color: #2C3E50;">Binary spike flags (±15% day-over-day), time-since-precip counters, 7-day precip/irrig sums, Savitzky-Golay smoothed VWC traces, sin/cos encodings for hour + DOY</p>
+  <div class="summary">
+    <h2>Feature recipe</h2>
+    <p>The notebook adds spike flags, smoothed trends, derivatives, time-since-water counters, and log-scaled precipitation totals—exactly the columns listed here.</p>
+    <p>If a feature ever drops from this table, it has dropped from the code too.</p>
+  </div>
+  <div class="table-wrap" id="engineered-table">
+    <p>TABLE PLACEHOLDER — Engineered feature set</p>
   </div>
 </div>
 </body>

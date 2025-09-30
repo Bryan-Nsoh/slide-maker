@@ -2,107 +2,81 @@
 <html>
 <head>
 <style>
-html { background: #ffffff; }
+html { background: #FFF7F0; }
 body {
   width: 720pt; height: 405pt; margin: 0; padding: 0;
-  background: #F8F9FA;
+  background: #FFF7F0;
   font-family: Arial, sans-serif;
+  color: #433024;
   display: flex;
 }
 .header {
-  background: #16A085;
-  padding: 20pt 40pt;
+  background: #35190B;
+  color: #FFF5EB;
+  padding: 22pt 48pt;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
 }
 h1 {
-  font-size: 32pt;
+  font-size: 34pt;
   font-weight: bold;
   margin: 0;
-  color: #FFFFFF;
 }
 .content {
-  margin: 100pt 40pt 90pt 40pt;
-}
-h2 {
-  font-size: 20pt;
-  font-weight: bold;
-  color: #2C3E50;
-  margin: 0 0 15pt 0;
-}
-.method-box {
-  background: #FFFFFF;
-  padding: 14pt;
-  border: 2pt solid #16A085;
-  margin: 10pt 0;
-}
-.formula {
-  font-size: 14pt;
-  font-family: Georgia, serif;
-  color: #2C3E50;
-  text-align: center;
-  margin: 12pt 0;
-}
-p {
-  font-size: 13pt;
-  color: #2C3E50;
-  margin: 7pt 0;
-  line-height: 1.45;
-}
-.code-inline {
-  background: #E0E0E0;
-  padding: 3pt 8pt;
-  font-family: Courier New, monospace;
-  font-size: 13pt;
-}
-.highlight-box {
-  background: #FFF3E0;
-  padding: 10pt;
-  border-left: 5pt solid #E67E22;
-  margin-top: 10pt;
-}
-.highlight-columns {
+  margin: 105pt 60pt 90pt 60pt;
   display: flex;
+  flex-direction: column;
   gap: 14pt;
-  margin-top: 4pt;
 }
-.highlight-columns ul {
+.paragraph {
+  font-size: 16pt;
+  line-height: 1.45;
   margin: 0;
-  padding-left: 20pt;
-  flex: 1;
 }
-.highlight-columns li {
-  font-size: 11.5pt;
-  color: #2C3E50;
-  margin: 3pt 0;
+.note {
+  background: #FFE7D1;
+  border-left: 6pt solid #C24B0A;
+  padding: 10pt 14pt;
+}
+.note p {
+  margin: 0;
+  font-size: 14.5pt;
+  line-height: 1.35;
+}
+.formula-card {
+  align-self: center;
+  background: #4B2410;
+  border: 3pt solid #C24B0A;
+  border-radius: 10pt;
+  padding: 10pt 14pt;
+  text-align: center;
+}
+.formula-card img {
+  width: 280pt;
+  height: auto;
+}
+.formula-card p {
+  margin: 6pt 0 0 0;
+  font-size: 12.5pt;
   line-height: 1.3;
+  color: #FFF5EB;
 }
 </style>
 </head>
 <body>
 <div class="header">
-  <h1>Interpolating Missing Values</h1>
+  <h1>Gap Filling with PCHIP</h1>
 </div>
 <div class="content">
-  <h2>PCHIP (Piecewise Cubic Hermite Interpolating Polynomial)</h2>
-  <div class="method-box">
-    <p class="formula">H(t) = y_k h_1(t) + y_{k+1} h_2(t) + h_k m_k h_3(t) + h_k m_{k+1} h_4(t)</p>
-    <p><b>Why PCHIP?</b> SciPy's <span class="code-inline">PchipInterpolator</span> keeps VWC curves monotone during dry-down and prevents Gibbs overshoot</p>
+  <p class="paragraph">We interpolate daily VWC gaps with SciPy’s Piecewise Cubic Hermite (PCHIP) spline. It keeps the curve monotonic between known points so dry-down periods stay smooth.</p>
+  <div class="formula-card">
+    <img src="../images/formulas/formula_pchip.png" alt="Hermite interpolation formula">
+    <p>Hermite basis functions blend neighbouring values and slopes so the fill extends the real dry-down pattern.</p>
   </div>
-  <div class="highlight-box">
-    <p><b>Critical Constraint:</b> Only interpolate during periods with NO rainfall</p>
-    <div class="highlight-columns">
-      <ul>
-        <li>Rain/fertigation spikes VWC ≈0.2 within six hours</li>
-        <li>Mask those windows so interpolation never bridges forced spikes</li>
-      </ul>
-      <ul>
-        <li>Dry stretches: ET pulls ≈0.005 per day (slow slope)</li>
-        <li>Carry latest decline rate forward to span gaps</li>
-      </ul>
-    </div>
+  <div class="note">
+    <p><b>Reality check:</b> right now we fill every day, even the wet ones. That flattens the irrigation spikes. Masking days with ≥5&nbsp;mm of water before filling would keep those jumps intact.</p>
   </div>
 </div>
 </body>

@@ -112,14 +112,19 @@ async function createPresentation() {
     // Slide 16: Scaling with Buffer
     await html2pptx('workspace/html-slides/slide-16.html', pptx);
 
-    // TODO: Slides 17-23 temporarily disabled until validation errors resolved
-    // await html2pptx('workspace/html-slides/slide-17.html', pptx);
-    // await html2pptx('workspace/html-slides/slide-18.html', pptx);
-    // await html2pptx('workspace/html-slides/slide-19.html', pptx);
-    // await html2pptx('workspace/html-slides/slide-20.html', pptx);
-    // await html2pptx('workspace/html-slides/slide-21.html', pptx);
-    // await html2pptx('workspace/html-slides/slide-22.html', pptx);
-    // await html2pptx('workspace/html-slides/slide-23.html', pptx);
+    await html2pptx('workspace/html-slides/slide-17.html', pptx);
+
+    await html2pptx('workspace/html-slides/slide-18.html', pptx);
+
+    await html2pptx('workspace/html-slides/slide-19.html', pptx);
+
+    await html2pptx('workspace/html-slides/slide-20.html', pptx);
+
+    await html2pptx('workspace/html-slides/slide-21.html', pptx);
+
+    await html2pptx('workspace/html-slides/slide-22.html', pptx);
+
+    await html2pptx('workspace/html-slides/slide-23.html', pptx);
 
     // Save
     await pptx.writeFile({ fileName: 'workspace/presentations/eda-lstm-vwc-prediction.pptx' });

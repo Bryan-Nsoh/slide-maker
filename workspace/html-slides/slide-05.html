@@ -2,113 +2,75 @@
 <html>
 <head>
 <style>
-html { background: #ffffff; }
+html { background: #FFF7F0; }
 body {
   width: 720pt; height: 405pt; margin: 0; padding: 0;
-  background: #F8F9FA;
+  background: #FFF7F0;
   font-family: Arial, sans-serif;
+  color: #433024;
   display: flex;
 }
 .header {
-  background: #16A085;
-  padding: 20pt 40pt;
+  background: #35190B;
+  color: #FFF5EB;
+  padding: 22pt 48pt;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
 }
 h1 {
-  font-size: 32pt;
+  font-size: 34pt;
   font-weight: bold;
   margin: 0;
-  color: #FFFFFF;
 }
 .content {
-  margin: 100pt 40pt 120pt 40pt;
+  margin: 110pt 60pt 70pt 60pt;
   display: flex;
-  gap: 24pt;
+  flex-direction: column;
+  gap: 18pt;
 }
-.stats-column {
-  flex: 1;
-}
-.stats-grid {
+.summary-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16pt;
+  gap: 12pt;
 }
-.stat-card {
-  background: #FFFFFF;
-  padding: 16pt;
-  border-left: 5pt solid #E67E22;
-  text-align: center;
+.card {
+  background: #FFE7D1;
+  border-left: 6pt solid #C24B0A;
+  padding: 10pt 12pt;
 }
-.stat-number {
-  font-size: 32pt;
-  font-weight: bold;
-  color: #E67E22;
+.card h2 {
+  margin: 0 0 3pt 0;
+  font-size: 16pt;
+  color: #C24B0A;
+}
+.card p {
   margin: 0;
-}
-.stat-label {
-  font-size: 13pt;
-  color: #2C3E50;
-  margin: 8pt 0 0 0;
-}
-.details {
-  flex: 1;
-  background: #FFFFFF;
-  padding: 18pt;
-  border-left: 5pt solid #2C3E50;
-}
-h2 {
-  font-size: 18pt;
-  font-weight: bold;
-  color: #2C3E50;
-  margin: 0 0 12pt 0;
-}
-ul {
-  margin: 0;
-  padding-left: 22pt;
-}
-li {
-  font-size: 13pt;
-  color: #2C3E50;
-  margin: 6pt 0;
+  font-size: 14pt;
+  line-height: 1.3;
 }
 </style>
 </head>
 <body>
 <div class="header">
-  <h1>Dataset Summary</h1>
+  <h1>What Did We Measure?</h1>
 </div>
 <div class="content">
-  <div class="stats-column">
-    <div class="stats-grid">
-      <div class="stat-card">
-        <p class="stat-number">3</p>
-        <p class="stat-label">Months</p>
-      </div>
-      <div class="stat-card">
-        <p class="stat-number">~90</p>
-        <p class="stat-label">Days</p>
-      </div>
-      <div class="stat-card">
-        <p class="stat-number">Hourly</p>
-        <p class="stat-label">Sampling</p>
-      </div>
-      <div class="stat-card">
-        <p class="stat-number">Multiple</p>
-        <p class="stat-label">Plot Ranges</p>
-      </div>
+  <p style="font-size: 16pt; line-height: 1.45; margin: 0;">Every plot streams an hourly record from late July through September 2023. We ingested roughly 2,000 timestamps per sensor channel across seven RCBD blocks.</p>
+  <div class="summary-grid">
+    <div class="card">
+      <h2>Sensor Stack</h2>
+      <p>Soil moisture (6/18/30&nbsp;cm), canopy temperature, weather tower, irrigation pulse totals.</p>
     </div>
-  </div>
-  <div class="details">
-    <h2>Key Characteristics</h2>
-    <ul>
-      <li>Corn hybrid DK-672 grown in RCBD plots 2003–2015 with LoRa telemetry</li>
-      <li>Hourly sensor pulls from 2023-07-20 → 2023-09-30 (≈2,000 rows per channel)</li>
-      <li>Synchronized canopy temp, VWC_06/18/30, weather, and irrigation counters</li>
-      <li>Frequent outages: chewed sensor leads + cloudy weeks → multi-day gaps</li>
-    </ul>
+    <div class="card">
+      <h2>Spatial Scale</h2>
+      <p>Plots 2003–2015 share the crop but differ in irrigation strategy; the model must span them all.</p>
+    </div>
+    <div class="card">
+      <h2>Timeframe</h2>
+      <p>Hourly readings roll up to daily averages, aligned with the four-day irrigation cycle.</p>
+    </div>
   </div>
 </div>
 </body>
