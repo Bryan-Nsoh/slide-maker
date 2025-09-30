@@ -1,0 +1,60 @@
+{
+  "title": "Project Status Report",
+  "subtitle": "Q1 2025 Update",
+  "slides": [
+    {
+      "type": "content",
+      "title": "Executive Summary",
+      "content": [
+        "Project is on track and within budget",
+        "All major milestones achieved this quarter",
+        "Team performance exceeded expectations",
+        "Ready to proceed to next phase"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Project Overview",
+      "content": "This quarter we focused on establishing the foundation for our new platform. The development team successfully implemented the core architecture, while the design team completed the user interface mockups. We also conducted extensive user testing to validate our approach."
+    },
+    {
+      "type": "content",
+      "title": "Key Achievements",
+      "content": [
+        "Completed backend API development",
+        "Finished user interface design",
+        "Conducted 15 user testing sessions",
+        "Established automated testing pipeline",
+        "Onboarded 3 new team members"
+      ]
+    },
+    {
+      "type": "content",
+      "title": "Challenges & Solutions",
+      "content": [
+        "Challenge: Integration complexity",
+        "Solution: Implemented microservices architecture",
+        "Challenge: Performance optimization",
+        "Solution: Added caching layer",
+        "Challenge: User feedback integration",
+        "Solution: Weekly feedback review sessions"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Financial Status",
+      "content": "The project remains within the allocated budget of $250,000. Current spending is at 68% of the total budget, with most expenses going toward development resources and infrastructure. We expect to finish the quarter at 75% budget utilization."
+    },
+    {
+      "type": "content",
+      "title": "Next Quarter Goals",
+      "content": [
+        "Launch beta version to select users",
+        "Implement advanced analytics features",
+        "Scale infrastructure for increased load",
+        "Complete security audit and compliance review",
+        "Prepare for public launch"
+      ]
+    }
+  ]
+}
