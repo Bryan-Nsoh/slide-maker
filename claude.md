@@ -3,7 +3,7 @@
 ## IMPORTANT: Slide Creation Rules
 
 <ul>
-  <li><strong>MIRROR RULE</strong>: This file (AGENTS.md) must always mirror claude.md exactly.</li>
+  <li><strong>MIRROR RULE</strong>: This file (claude.md) must always mirror AGENTS.md exactly.</li>
   <li><strong>MANDATORY WORKFLOW</strong>: When asked to create slides, you MUST use the instructions in AGENTS.md and all tools referred to in this project.</li>
   <li><strong>NO ALTERNATIVES</strong>: No other way of creating slides is allowed. Only use:
     <ul>
