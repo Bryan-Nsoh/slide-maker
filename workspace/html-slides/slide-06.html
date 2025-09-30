@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #F8F9FA;
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+.header {
+  background: #16A085;
+  padding: 20pt 40pt;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+h1 {
+  font-size: 32pt;
+  font-weight: bold;
+  margin: 0;
+  color: #FFFFFF;
+}
+.content {
+  margin: 100pt 40pt 40pt 40pt;
+  width: 640pt;
+}
+h2 {
+  font-size: 20pt;
+  font-weight: bold;
+  color: #2C3E50;
+  margin: 0 0 20pt 0;
+}
+.table-placeholder {
+  width: 640pt;
+  height: 220pt;
+  background: #E8F5E9;
+  border: 2pt solid #16A085;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+p {
+  font-size: 16pt;
+  color: #2C3E50;
+  text-align: center;
+  margin: 6pt 10pt;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Native Data Features</h1>
+</div>
+<div class="content">
+  <h2>Raw Data Columns Collected</h2>
+  <div id="feature-table" class="table-placeholder">
+    <p><b>TABLE: All Native Features</b></p>
+    <p style="font-size: 13pt; color: #2C3E50;">TIMESTAMP, VWC_06/18/30, canopy_temp, Ta/RH/Solar towers, wind, rain, irrigation pulse totals pulled directly from CR1000X logger</p>
+  </div>
+</div>
+</body>
+</html>

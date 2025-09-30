@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #F8F9FA;
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+.header {
+  background: #16A085;
+  padding: 20pt 40pt;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+h1 {
+  font-size: 32pt;
+  font-weight: bold;
+  margin: 0;
+  color: #FFFFFF;
+}
+.content {
+  margin: 100pt 40pt 120pt 40pt;
+  display: flex;
+  gap: 28pt;
+}
+.left {
+  flex: 1;
+}
+.right {
+  flex: 1;
+}
+h2 {
+  font-size: 20pt;
+  font-weight: bold;
+  color: #2C3E50;
+  margin: 0 0 15pt 0;
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14pt;
+}
+.step {
+  background: #FFFFFF;
+  padding: 12pt;
+  border-left: 4pt solid #16A085;
+}
+.step-title {
+  font-size: 15pt;
+  font-weight: bold;
+  color: #2C3E50;
+  margin: 0 0 8pt 0;
+}
+.step-desc {
+  font-size: 13pt;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+.code-box {
+  background: #2C3E50;
+  padding: 10pt;
+  font-family: Courier New, monospace;
+  font-size: 10pt;
+  color: #FFFFFF;
+  margin: 10pt 0;
+}
+.code-box p {
+  margin: 4pt 0;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Basic Data Cleaning</h1>
+</div>
+<div class="content">
+  <div class="left">
+    <h2>Essential Preprocessing Steps</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <p class="step-title">1. trim_start_end_nans(df)</p>
+        <p class="step-desc">Walks each column to find first/last valid timestamp so storm outages are clipped</p>
+      </div>
+      <div class="step">
+        <p class="step-title">2. drop_duplicates()</p>
+        <p class="step-desc">CR1000X occasionally double-logs hourly rows after reboot – eliminate duplicates</p>
+      </div>
+      <div class="step">
+        <p class="step-title">3. set_index('TIMESTAMP')</p>
+        <p class="step-desc">Indexing enables resample windows and sliding-window sequence generation</p>
+      </div>
+      <div class="step">
+        <p class="step-title">4. resample('D').mean()</p>
+        <p class="step-desc">Daily aggregation tested vs. hourly – no perf loss but smoother VWC trajectories</p>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <h2>Code Example</h2>
+    <div class="code-box">
+      <p># Cleaning pipeline anchored in notebook</p>
+      <p>df = trim_start_end_nans(raw_df)</p>
+      <p>df = (df.drop_duplicates()</p>
+      <p>        .set_index('TIMESTAMP')</p>
+      <p>        .sort_index()</p>
+      <p>        .resample("D").mean())</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

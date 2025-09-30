@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #F8F9FA;
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+.header {
+  background: #2C3E50;
+  padding: 20pt 40pt;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+h1 {
+  font-size: 32pt;
+  font-weight: bold;
+  margin: 0;
+  color: #FFFFFF;
+}
+.content {
+  margin: 100pt 40pt 120pt 40pt;
+}
+.quote-box {
+  background: #FFFFFF;
+  padding: 24pt;
+  border-left: 8pt solid #E67E22;
+  margin: 20pt 0;
+}
+.quote {
+  font-size: 19pt;
+  font-style: italic;
+  color: #2C3E50;
+  line-height: 1.6;
+  margin: 0;
+}
+ul {
+  margin: 18pt 0 0 0;
+  padding-left: 28pt;
+}
+li {
+  font-size: 15pt;
+  color: #2C3E50;
+  margin: 9pt 0;
+  line-height: 1.4;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Domain Knowledge is Critical</h1>
+</div>
+<div class="content">
+  <div class="quote-box">
+    <p class="quote">"Field intuition converts logger noise into features – we have to encode irrigation timing, infiltration lag, and chewed-wire outages."</p>
+  </div>
+  <ul>
+    <li>Warden silt loam shows 2–6 hour infiltration lag before VWC sensors spike</li>
+    <li>Fertigation crew logs night-time pulses → mark windows to avoid interpolation</li>
+    <li>CR1000X stations lose power after 3 cloudy days; trim those dead zones first</li>
+    <li>RCBD layout demands plot-aware scaling so LSTM learns cross-plot dynamics</li>
+  </ul>
+</div>
+</body>
+</html>

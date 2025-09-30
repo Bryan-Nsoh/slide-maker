@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #F8F9FA;
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+.header {
+  background: #16A085;
+  padding: 20pt 40pt;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+h1 {
+  font-size: 32pt;
+  font-weight: bold;
+  margin: 0;
+  color: #FFFFFF;
+}
+.content {
+  margin: 100pt 40pt 110pt 40pt;
+}
+h2 {
+  font-size: 20pt;
+  font-weight: bold;
+  color: #2C3E50;
+  margin: 0 0 15pt 0;
+}
+p {
+  font-size: 13pt;
+  color: #2C3E50;
+  margin: 6pt 0;
+  line-height: 1.4;
+}
+.transform-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16pt;
+}
+.transform-box {
+  background: #FFF3E0;
+  padding: 12pt;
+  border-left: 5pt solid #E67E22;
+}
+ul {
+  margin: 8pt 0;
+  padding-left: 22pt;
+}
+li {
+  font-size: 13pt;
+  color: #2C3E50;
+  margin: 6pt 0;
+  line-height: 1.4;
+}
+.code-box {
+  background: #2C3E50;
+  padding: 12pt;
+  font-family: Courier New, monospace;
+  font-size: 11pt;
+  color: #FFFFFF;
+  margin: 10pt 0;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Data Transformations</h1>
+</div>
+<div class="content">
+  <h2>Preparing Data for Neural Network</h2>
+    <div class="transform-grid">
+      <div class="transform-box">
+        <p><b>1. Mean Subtraction</b></p>
+        <p>Store μ for VWC_06/18/30 per plot, subtract so LSTM sees anomalies not absolute moisture</p>
+      </div>
+      <div class="transform-box">
+        <p><b>2. Derivative Features</b></p>
+        <p>Add ΔVWC columns via diff() to encode daily depletion velocity after irrigation</p>
+      </div>
+      <div class="transform-box">
+        <p><b>3. MinMax Scaling</b></p>
+        <p>Scale channels to [0,1] with 30% buffer so storms and injections stay in range</p>
+      </div>
+      <div class="transform-box">
+        <p><b>4. Log Transform</b></p>
+        <p>Use log(precip_irrig + 1) to convert skewed irrigation pulses into learnable increments</p>
+      </div>
+    </div>
+</div>
+</body>
+</html>

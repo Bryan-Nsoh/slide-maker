@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #F8F9FA;
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+.header {
+  background: #16A085;
+  padding: 20pt 40pt;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+h1 {
+  font-size: 32pt;
+  font-weight: bold;
+  margin: 0;
+  color: #FFFFFF;
+}
+.content {
+  margin: 100pt 40pt 100pt 40pt;
+}
+h2 {
+  font-size: 20pt;
+  font-weight: bold;
+  color: #2C3E50;
+  margin: 0 0 15pt 0;
+}
+p {
+  font-size: 13pt;
+  color: #2C3E50;
+  margin: 7pt 0;
+  line-height: 1.4;
+}
+.pipeline {
+  margin: 6pt 0 12pt 0;
+  padding-left: 24pt;
+}
+.pipeline li {
+  font-size: 12.8pt;
+  color: #2C3E50;
+  margin: 3pt 0;
+  line-height: 1.28;
+}
+.code-box {
+  background: #2C3E50;
+  padding: 8pt;
+  font-family: Courier New, monospace;
+  font-size: 8.5pt;
+  color: #FFFFFF;
+  margin: 6pt 0;
+}
+.code-inline {
+  font-family: Courier New, monospace;
+  background: #E0E0E0;
+  padding: 2pt 6pt;
+  border-radius: 3pt;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Reverse Transformation</h1>
+</div>
+<div class="content">
+  <h2>Converting Predictions Back to %VWC</h2>
+  <p>We persist transformation metadata with the model so predictions can be reconstructed in volumetric water content units.</p>
+  <ol class="pipeline">
+    <li>Inverse-scale each column using buffered MinMax scalers</li>
+    <li>Add the stored mean μ for each VWC depth/plot</li>
+    <li>Cumsum ΔVWC and add the initial value to recover absolute %VWC</li>
+  </ol>
+  <h2>Notebook Routine</h2>
+  <div class="code-box">
+    <p>scaled = meta['scalers'][col].inverse_transform(df[[col]])</p>
+    <p>df[col] = scaled.cumsum() + meta['initial_values'].get(col, 0) + meta['means'][col]</p>
+  </div>
+  <p style="font-size: 12pt; color: #2C3E50; margin-top: 4pt;">Metadata stores <span class="code-inline">means</span>, <span class="code-inline">scalers</span>, <span class="code-inline">initial_values</span>, and column order.</p>
+</div>
+</body>
+</html>
