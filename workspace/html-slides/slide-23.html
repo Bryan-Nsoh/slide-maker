@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #FFF7F0; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFF7F0;
+  font-family: Arial, sans-serif;
+  color: #433024;
+  display: flex;
+}
+.header {
+  background: #35190B;
+  color: #FFF5EB;
+  padding: 22pt 48pt;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+h1 {
+  font-size: 34pt;
+  font-weight: bold;
+  margin: 0;
+}
+.content {
+  margin: 110pt 60pt 90pt 60pt;
+  display: flex;
+  flex-direction: column;
+  gap: 14pt;
+}
+.paragraph {
+  font-size: 16pt;
+  line-height: 1.45;
+  margin: 0;
+}
+.list {
+  margin: 0;
+  padding-left: 24pt;
+  display: flex;
+  flex-direction: column;
+  gap: 6pt;
+}
+.list li {
+  font-size: 14.5pt;
+  line-height: 1.35;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Performance & Open Questions</h1>
+</div>
+<div class="content">
+  <p class="paragraph">Cross-plot RMSE sits around 0.025&nbsp;m³/m³ across the four-day horizon. The model tracks seasonal dry-down well but barely reacts when we inject extra irrigation into the inputs.</p>
+  <ul class="list">
+    <li>Temporal features and spike flags keep predictions aligned in dry periods.</li>
+    <li>Buffered scaling prevents values from clipping when validation plots get more rain.</li>
+    <li>Injecting extra irrigation after scaling barely moves the forecast—the 0-1 buffer squashes the added pulse, so we need stronger irrigation features or loss weighting.</li>
+  </ul>
+</div>
+</body>
+</html>
