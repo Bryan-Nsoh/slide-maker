@@ -25,10 +25,15 @@ h1 {
   margin: 0;
 }
 .content {
-  margin: 120pt 60pt 90pt 60pt;
+  margin: 105pt 55pt 0 55pt;
+  display: flex;
+  gap: 24pt;
+}
+.text {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 16pt;
+  gap: 8pt;
 }
 .section-title {
   font-size: 20pt;
@@ -37,18 +42,22 @@ h1 {
   margin: 0;
 }
 .paragraph {
-  font-size: 16pt;
-  line-height: 1.45;
+  font-size: 14.5pt;
+  line-height: 1.35;
   margin: 0;
 }
-.list {
-  margin: 0;
-  padding-left: 22pt;
+.figure {
+  flex: 0 0 220pt;
+  background: #FFE7D1;
+  border: 2pt solid #C24B0A;
+  padding: 10pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.list li {
-  font-size: 15pt;
-  line-height: 1.4;
-  margin: 4pt 0;
+.figure img {
+  max-width: 200pt;
+  max-height: 220pt;
 }
 </style>
 </head>
@@ -57,14 +66,14 @@ h1 {
   <h1>First Pain Point: Missing Hours Everywhere</h1>
 </div>
 <div class="content">
-  <p class="paragraph">Cables get chewed, solar panels get cloudy, and irrigation events knock radios offline. In the raw export the notebook loads, these outages show up as NaNs sprinkled across every channel.</p>
-  <p class="section-title">What we learned from the raw export</p>
-  <ul class="list">
-    <li>Soil probes can go dark for days while the weather tower keeps logging.</li>
-    <li>Power loss knocks out every channel, which is why we trim the dataset ends in code.</li>
-    <li>Each plot recovers on its own schedule, so we avoid borrowing from neighbours.</li>
-  </ul>
-  <p class="paragraph">Next up is the gap profile by column so we can target the worst offenders.</p>
+  <div class="text">
+    <p class="paragraph">Cables get chewed, solar panels cloud over, and irrigation knocks radios offline. In the raw export these outages show up as NaNs sprinkled across every channel. The next slide shows the best and worst raw VWC traces before cleaning.</p>
+    <p class="section-title">What we learned from the raw export</p>
+    <p class="paragraph">Soil probes can go dark for days while the weather tower keeps logging. Power loss knocks out every channel at once, which is why the code trims dataset ends. Each plot recovers on its own schedule, so we avoid borrowing from neighbours.</p>
+  </div>
+  <div class="figure">
+    <img src="../images/eda_assets/dataset_missing_values_by_column.png" alt="Bar chart showing missing hours per sensor column">
+  </div>
 </div>
 </body>
 </html>

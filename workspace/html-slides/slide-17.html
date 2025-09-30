@@ -25,30 +25,30 @@ h1 {
   margin: 0;
 }
 .content {
-  margin: 120pt 50pt 70pt 50pt;
+  margin: 110pt 55pt 100pt 55pt;
   display: flex;
   flex-direction: column;
-  gap: 16pt;
-  align-items: center;
+  gap: 12pt;
 }
 .grid {
   display: flex;
-  gap: 12pt;
-  width: 100%;
+  gap: 10pt;
   justify-content: center;
 }
 .panel {
-  flex: 0 0 160pt;
+  flex: 0 0 175pt;
   background: #FFE7D1;
   border: 2pt solid #C24B0A;
   padding: 10pt;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 8pt;
 }
 .panel img {
-  max-width: 140pt;
-  max-height: 140pt;
+  width: 100%;
+  height: auto;
+  max-height: 200pt;
 }
 .caption {
   font-size: 14pt;
@@ -66,15 +66,18 @@ h1 {
   <div class="grid">
     <div class="panel">
       <img src="../images/eda_assets/plot2014_depth06_spike_detection_flags.png" alt="Spike detection flags for depth 6 cm">
+      <p style="font-size: 14pt; line-height: 1.3; margin: 0; text-align: center;">Depth 6&nbsp;cm reacts almost immediately after irrigation.</p>
     </div>
     <div class="panel">
       <img src="../images/eda_assets/plot2014_depth18_spike_detection_flags.png" alt="Spike detection flags for depth 18 cm">
+      <p style="font-size: 14pt; line-height: 1.3; margin: 0; text-align: center;">Depth 18&nbsp;cm lags by a day but still shows a clear spike.</p>
     </div>
     <div class="panel">
       <img src="../images/eda_assets/plot2014_depth30_spike_detection_flags.png" alt="Spike detection flags for depth 30 cm">
+      <p style="font-size: 14pt; line-height: 1.3; margin: 0; text-align: center;">Depth 30&nbsp;cm keeps the irrigation signal even though it is dampened.</p>
     </div>
   </div>
-  <p class="caption">Each depth responds differently. The binary flags align with the ΔVWC spikes we saw earlier, giving the model a crisp indicator of irrigation timing.</p>
+  <p class="caption" style="font-size: 13.5pt; line-height: 1.3;">These binary flags line up with the ΔVWC spikes we engineered earlier, giving the model a crisp indicator of irrigation timing at each depth.</p>
 </div>
 </body>
 </html>
