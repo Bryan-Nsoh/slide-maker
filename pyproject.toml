@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "slide-maker"
+version = "0.1.0"
+description = "Python tooling for generating PowerPoint presentations"
+authors = ["Slide Maker Team <slides@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+python-pptx = "^1.0.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+black = "^25.1.0"
+isort = "^5.13.2"
+mypy = "^1.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
