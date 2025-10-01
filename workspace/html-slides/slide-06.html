@@ -25,12 +25,13 @@ h1 {
   margin: 0;
 }
 .content {
-  margin: 120pt 60pt 70pt 60pt;
+  margin: 110pt 55pt 85pt 55pt;
   display: flex;
-  gap: 24pt;
+  gap: 22pt;
+  align-items: center;
 }
 .summary {
-  width: 200pt;
+  width: 230pt;
   display: flex;
   flex-direction: column;
   gap: 12pt;
@@ -45,19 +46,19 @@ h1 {
   line-height: 1.35;
   margin: 0;
 }
-.table-wrap {
+.figure {
   flex: 1;
-  border: 2pt solid #C24B0A;
   background: #FFE7D1;
+  border: 2pt solid #C24B0A;
   padding: 12pt;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.table-wrap p {
-  margin: 0;
-  font-size: 14pt;
-  color: #7A3A14;
+.figure img {
+  max-width: 440pt;
+  max-height: 230pt;
+  height: auto;
 }
 </style>
 </head>
@@ -68,11 +69,11 @@ h1 {
 <div class="content">
   <div class="summary">
     <h2>Why it matters</h2>
-    <p>The notebook builds this list inside <span style="font-family: 'Courier New', monospace;">process_data_for_plot</span>—weather, soil probes, and irrigation counters all land in the same dataframe.</p>
+    <p>The notebook builds this list inside <span style="font-family: 'Courier New', monospace;">process_data_for_plot</span>&mdash;weather, soil probes, and irrigation counters all land in the same dataframe.</p>
     <p>If a sensor goes offline we update the code and this table together so downstream features never silently change.</p>
   </div>
-  <div class="table-wrap" id="feature-table">
-    <p>TABLE PLACEHOLDER — Native sensor channels</p>
+  <div class="figure">
+    <img src="../images/final_visualizations/01_native_sensor_channels_overview_table.png" alt="Native sensor channels overview table">
   </div>
 </div>
 </body>

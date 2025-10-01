@@ -25,12 +25,13 @@ h1 {
   margin: 0;
 }
 .content {
-  margin: 120pt 60pt 70pt 60pt;
+  margin: 110pt 55pt 85pt 55pt;
   display: flex;
-  gap: 24pt;
+  gap: 22pt;
+  align-items: center;
 }
 .summary {
-  width: 200pt;
+  width: 230pt;
   display: flex;
   flex-direction: column;
   gap: 12pt;
@@ -45,19 +46,19 @@ h1 {
   line-height: 1.35;
   margin: 0;
 }
-.table-wrap {
+.figure {
   flex: 1;
-  border: 2pt solid #C24B0A;
   background: #FFE7D1;
+  border: 2pt solid #C24B0A;
   padding: 12pt;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.table-wrap p {
-  margin: 0;
-  font-size: 14pt;
-  color: #7A3A14;
+.figure img {
+  max-width: 440pt;
+  max-height: 230pt;
+  height: auto;
 }
 </style>
 </head>
@@ -68,11 +69,11 @@ h1 {
 <div class="content">
   <div class="summary">
     <h2>Feature recipe</h2>
-    <p>The notebook adds spike flags, smoothed trends, derivatives, time-since-water counters, log-scaled precipitation, and sinusoidal time encodings—exactly the columns listed here.</p>
-    <p>If a feature isn’t in this table, it isn’t in the training dataframe; this is our drift checklist.</p>
+    <p>The notebook adds spike flags, smoothed trends, derivatives, time-since-water counters, log-scaled precipitation, and sinusoidal time encodings&mdash;exactly the columns listed here.</p>
+    <p>If a feature isn’t in this table, it isn’t in the training dataframe; the graphic is our drift checklist.</p>
   </div>
-  <div class="table-wrap" id="engineered-table">
-    <p>TABLE PLACEHOLDER — Engineered feature set</p>
+  <div class="figure">
+    <img src="../images/final_visualizations/02_engineered_features_overview_table.png" alt="Engineered features overview table">
   </div>
 </div>
 </body>

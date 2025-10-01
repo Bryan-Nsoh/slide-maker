@@ -25,19 +25,20 @@ h1 {
   margin: 0;
 }
 .content {
-  margin: 110pt 55pt 90pt 55pt;
+  margin: 110pt 55pt 85pt 55pt;
   display: flex;
   gap: 18pt;
+  align-items: center;
 }
 .text {
   width: 210pt;
   display: flex;
   flex-direction: column;
-  gap: 9pt;
+  gap: 10pt;
 }
 .text p {
   font-size: 14.5pt;
-  line-height: 1.32;
+  line-height: 1.35;
   margin: 0;
 }
 .figure {
@@ -50,8 +51,9 @@ h1 {
   justify-content: center;
 }
 .figure img {
-  max-width: 360pt;
+  max-width: 380pt;
   max-height: 220pt;
+  height: auto;
 }
 </style>
 </head>
@@ -61,8 +63,8 @@ h1 {
 </div>
 <div class="content">
   <div class="text">
-    <p>The code builds the full architecture shown here: four LSTM layers (512 → 256 → 128 → 64 units) with batch norm and dropout after each, followed by a dense head reshaped to four forecast days × three depths.</p>
-    <p>Adam with exponential decay (start 0.001) and MSE loss run across five TimeSeriesSplit folds sharing weights across plots.</p>
+    <p>The notebook builds the full stack below: LSTM layers with 512 → 256 → 128 → 64 units, batch norm, and dropout, then a dense head reshaped to four forecast days × three depths.</p>
+    <p>Training uses Adam with exponential decay (start 0.001) and MSE loss across five TimeSeriesSplit folds so weights see every plot.</p>
   </div>
   <div class="figure">
     <img src="../images/final_visualizations/04_lstm_full_architecture_diagram.png" alt="Full LSTM architecture diagram">
