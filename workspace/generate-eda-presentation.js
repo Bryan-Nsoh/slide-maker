@@ -65,6 +65,8 @@ async function createPresentation() {
 
     await html2pptx('workspace/html-slides/slide-23.html', pptx);
 
+    await html2pptx('workspace/html-slides/slide-24.html', pptx);
+
     // Save
     await pptx.writeFile({ fileName: 'workspace/presentations/eda-lstm-vwc-prediction.pptx' });
     console.log('✓ Presentation created: workspace/presentations/eda-lstm-vwc-prediction.pptx');

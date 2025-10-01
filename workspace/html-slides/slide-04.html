@@ -25,38 +25,35 @@ h1 {
   margin: 0;
 }
 .content {
-  margin: 120pt 60pt 80pt 60pt;
-  display: flex;
-  flex-direction: column;
-  gap: 18pt;
-}
-.placeholder {
-  flex: 1;
-  border: 3pt dashed #C24B0A;
-  background: #FFE7D1;
+  margin: 110pt 40pt 80pt 40pt;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 24pt;
 }
-.placeholder p {
-  margin: 0;
-  font-size: 16pt;
-  line-height: 1.45;
-  color: #7A3A14;
+.figure {
+  width: 100%;
+  height: 100%;
+  background: #FFE7D1;
+  border: 2pt solid #C24B0A;
+  padding: 12pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.figure img {
+  max-width: 620pt;
+  max-height: 240pt;
+  height: auto;
 }
 </style>
 </head>
 <body>
 <div class="header">
-  <h1>Sensor to Cloud Data Pipeline</h1>
+  <h1>Sensor & Cloud Data Pipeline</h1>
 </div>
 <div class="content">
-  <p style="font-size: 16pt; line-height: 1.45; margin: 0;">Insert the field instrumentation diagram here: soil moisture probes at 6/18/30 cm, canopy temperature sensors, CR1000X logger, LoRa gateway, and the cloud database feeding this analysis.</p>
-  <div class="placeholder">
-    <p>IMAGE PLACEHOLDER — Full pipeline diagram
-Sensors → Datalogger → Gateway → Wireless backhaul → Cloud data lake</p>
+  <div class="figure">
+    <img src="../images/requested_images_pack/sensors_to_bigquery_pipeline_diagram.png" alt="Sensors to cloud data pipeline diagram">
   </div>
 </div>
 </body>

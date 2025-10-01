@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #FFF7F0; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFF7F0;
+  font-family: Arial, sans-serif;
+  color: #433024;
+  display: flex;
+}
+.header {
+  background: #35190B;
+  color: #FFF5EB;
+  padding: 22pt 48pt;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+h1 {
+  font-size: 32pt;
+  font-weight: bold;
+  margin: 0;
+}
+.content {
+  margin: 110pt 55pt 90pt 55pt;
+  display: flex;
+  gap: 20pt;
+}
+.text {
+  width: 240pt;
+  display: flex;
+  flex-direction: column;
+  gap: 10pt;
+}
+.text p {
+  font-size: 14.5pt;
+  line-height: 1.32;
+  margin: 0;
+}
+.figure {
+  flex: 1;
+  background: #FFE7D1;
+  border: 2pt solid #C24B0A;
+  padding: 12pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.figure img {
+  max-width: 430pt;
+  max-height: 220pt;
+  height: auto;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Irrigation Injection Experiment</h1>
+</div>
+<div class="content">
+  <div class="text">
+    <p>We injected extra irrigation into hold-out sequences to test whether the model would predict higher VWC. Because injections happen after scaling, the added pulse sits near 1.0 in both cases and the forecast barely moves.</p>
+    <p style="font-size: 13.5pt; line-height: 1.3;">Until we rescale the injection or add stronger irrigation features, the network cannot learn the sensitivity growers need.</p>
+  </div>
+  <div class="figure">
+    <img src="../images/requested_images_pack/irrigation_injection_failure.png" alt="Irrigation injection experiment results">
+  </div>
+</div>
+</body>
+</html>

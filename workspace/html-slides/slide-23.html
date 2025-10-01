@@ -20,45 +20,54 @@ body {
   right: 0;
 }
 h1 {
-  font-size: 34pt;
+  font-size: 32pt;
   font-weight: bold;
   margin: 0;
 }
 .content {
-  margin: 110pt 60pt 90pt 60pt;
+  margin: 110pt 55pt 90pt 55pt;
+  display: flex;
+  gap: 20pt;
+}
+.text {
+  width: 220pt;
   display: flex;
   flex-direction: column;
-  gap: 14pt;
+  gap: 10pt;
 }
-.paragraph {
-  font-size: 16pt;
-  line-height: 1.45;
-  margin: 0;
-}
-.list {
-  margin: 0;
-  padding-left: 24pt;
-  display: flex;
-  flex-direction: column;
-  gap: 6pt;
-}
-.list li {
+.text p {
   font-size: 14.5pt;
-  line-height: 1.35;
+  line-height: 1.32;
+  margin: 0;
+}
+.figure {
+  flex: 1;
+  background: #FFE7D1;
+  border: 2pt solid #C24B0A;
+  padding: 10pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.figure img {
+  max-width: 430pt;
+  max-height: 220pt;
+  height: auto;
 }
 </style>
 </head>
 <body>
 <div class="header">
-  <h1>Performance & Open Questions</h1>
+  <h1>Hold-Out Forecast Example</h1>
 </div>
 <div class="content">
-  <p class="paragraph">Cross-plot RMSE sits around 0.025&nbsp;m³/m³ across the four-day horizon. The model tracks seasonal dry-down well but barely reacts when we inject extra irrigation into the inputs.</p>
-  <ul class="list">
-    <li>Temporal features and spike flags keep predictions aligned in dry periods.</li>
-    <li>Buffered scaling prevents values from clipping when validation plots get more rain.</li>
-    <li>Injecting extra irrigation after scaling barely moves the forecast—the 0-1 buffer squashes the added pulse, so we need stronger irrigation features or loss weighting.</li>
-  </ul>
+  <div class="text">
+    <p>Sliding the trained network across a hold-out plot shows where it succeeds and fails. It catches some four-day moisture swings but can miss irrigation timing that never appeared in training plots.</p>
+    <p style="font-size: 13.5pt; line-height: 1.3;">Example below: predictions (orange) vs. actuals (blue) for plot 2003 across sequential four-day horizons.</p>
+  </div>
+  <div class="figure">
+    <img src="../images/requested_images_pack/predicted_vs_actual_plot2003.png" alt="Predicted vs actual VWC on hold-out plot">
+  </div>
 </div>
 </body>
 </html>
