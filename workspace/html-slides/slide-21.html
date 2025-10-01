@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #FFF7F0; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFF7F0;
+  font-family: Arial, sans-serif;
+  color: #433024;
+  display: flex;
+}
+.header {
+  background: #35190B;
+  color: #FFF5EB;
+  padding: 22pt 48pt;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+h1 {
+  font-size: 32pt;
+  font-weight: bold;
+  margin: 0;
+}
+.content {
+  margin: 110pt 55pt 80pt 55pt;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16pt;
+}
+.panel {
+  background: #FFE7D1;
+  border: 2pt solid #C24B0A;
+  padding: 12pt;
+  display: flex;
+  flex-direction: column;
+  gap: 10pt;
+  align-items: center;
+}
+.panel img {
+  max-width: 300pt;
+  height: auto;
+}
+.panel p {
+  font-size: 14.5pt;
+  line-height: 1.35;
+  text-align: center;
+  margin: 0;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>How We Feed and Validate the Model</h1>
+</div>
+<div class="content">
+  <div class="panel">
+    <img src="../images/final_visualizations/03_sliding_window_prediction_horizon_diagram.png" alt="Sliding window and prediction horizon diagram">
+    <p>Seven days in, four days out. We currently slide the window forward one day at a time, so forecasts overlap.</p>
+  </div>
+  <div class="panel">
+    <img src="../images/final_visualizations/06_cross_validation_multiple_plots_diagram.png" alt="Cross-validation across multiple plots diagram">
+    <p>TimeSeriesSplit keeps each plot chronological: orange windows train, green windows validate across the RCBD blocks.</p>
+  </div>
+</div>
+</body>
+</html>

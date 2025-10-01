@@ -41,8 +41,8 @@ h1 {
   margin: 0;
 }
 .summary p {
-  font-size: 15pt;
-  line-height: 1.4;
+  font-size: 14.5pt;
+  line-height: 1.35;
   margin: 0;
 }
 .table-wrap {
@@ -68,8 +68,8 @@ h1 {
 <div class="content">
   <div class="summary">
     <h2>Why it matters</h2>
-    <p>The notebook pulls these channels straight from <span style="font-family: 'Courier New', monospace;">process_data_for_plot</span> and passes them to every downstream transform.</p>
-    <p>If we ever disable a sensor, we edit the table and the code together to keep the data wrangling honest.</p>
+    <p>The notebook builds this list inside <span style="font-family: 'Courier New', monospace;">process_data_for_plot</span>—weather, soil probes, and irrigation counters all land in the same dataframe.</p>
+    <p>If a sensor goes offline we update the code and this table together so downstream features never silently change.</p>
   </div>
   <div class="table-wrap" id="feature-table">
     <p>TABLE PLACEHOLDER — Native sensor channels</p>

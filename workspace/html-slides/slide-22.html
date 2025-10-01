@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #FFF7F0; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFF7F0;
+  font-family: Arial, sans-serif;
+  color: #433024;
+  display: flex;
+}
+.header {
+  background: #35190B;
+  color: #FFF5EB;
+  padding: 22pt 48pt;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+h1 {
+  font-size: 34pt;
+  font-weight: bold;
+  margin: 0;
+}
+.content {
+  margin: 110pt 55pt 90pt 55pt;
+  display: flex;
+  gap: 18pt;
+}
+.text {
+  width: 210pt;
+  display: flex;
+  flex-direction: column;
+  gap: 9pt;
+}
+.text p {
+  font-size: 14.5pt;
+  line-height: 1.32;
+  margin: 0;
+}
+.figure {
+  flex: 1;
+  background: #FFE7D1;
+  border: 2pt solid #C24B0A;
+  padding: 12pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.figure img {
+  max-width: 360pt;
+  max-height: 220pt;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>LSTM Stack Used in Training</h1>
+</div>
+<div class="content">
+  <div class="text">
+    <p>The code builds the full architecture shown here: four LSTM layers (512 → 256 → 128 → 64 units) with batch norm and dropout after each, followed by a dense head reshaped to four forecast days × three depths.</p>
+    <p>Adam with exponential decay (start 0.001) and MSE loss run across five TimeSeriesSplit folds sharing weights across plots.</p>
+  </div>
+  <div class="figure">
+    <img src="../images/final_visualizations/04_lstm_full_architecture_diagram.png" alt="Full LSTM architecture diagram">
+  </div>
+</div>
+</body>
+</html>
