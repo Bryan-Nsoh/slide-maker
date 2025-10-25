@@ -1,0 +1,9 @@
+sequenceDiagram
+    participant A as Agent A<br/>(Initiator)
+    participant B as Agent B<br/>(Responder)
+
+    A->>B: PATH_PROPOSE<br/>"Try route: ↓↓↓→→→"
+    Note right of B: Check against<br/>private map
+    B->>A: PATH_CERT<br/>"Certified ✓"
+    A->>B: ACK<br/>"Got it"
+    Note over A,B: DONE (3 messages)
