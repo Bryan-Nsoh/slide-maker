@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #ffffff; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+}
+
+h1 {
+  color: #2c3e50;
+  font-size: 22pt;
+  margin: 10pt 0 6pt 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 12pt;
+  color: #7f8c8d;
+  margin: 0 0 10pt 0;
+}
+
+.sections {
+  margin: 0 35pt 25pt 35pt;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8pt;
+}
+
+.section-box {
+  background: #f8f9fa;
+  border-left: 5pt solid #3498db;
+  border-radius: 4pt;
+  padding: 8pt 12pt;
+}
+
+.section-box.implementation {
+  border-left-color: #3498db;
+  background: #ebf5fb;
+}
+
+.section-box.dataset {
+  border-left-color: #f39c12;
+  background: #fef5e7;
+}
+
+.section-box.metrics {
+  border-left-color: #27ae60;
+  background: #eafaf1;
+}
+
+.section-header {
+  font-size: 14pt;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0 0 6pt 0;
+}
+
+.section-content {
+  font-size: 10pt;
+  color: #2c3e50;
+  line-height: 1.4;
+}
+
+.section-content ul {
+  margin: 3pt 0;
+  padding: 0 0 0 18pt;
+}
+
+.section-content li {
+  margin: 3pt 0;
+}
+
+.two-col {
+  display: flex;
+  gap: 12pt;
+}
+
+.col {
+  flex: 1;
+}
+
+.metric-item {
+  margin: 4pt 0;
+}
+
+.checkmark {
+  color: #27ae60;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+  <h1>Our Approach: Implementation & Evaluation</h1>
+  <p class="subtitle">How we'll build and test the system</p>
+
+  <div class="sections">
+    <div class="section-box implementation">
+      <p class="section-header">1. What We'll Implement</p>
+      <div class="section-content">
+        <div class="two-col">
+          <div class="col">
+            <p><b>CertTalk Protocol:</b></p>
+            <ul>
+              <li>PATH & CUT certificate encodings</li>
+              <li>Witness bit negotiation</li>
+              <li>Oracle verification module</li>
+            </ul>
+          </div>
+          <div class="col">
+            <p><b>Baseline Systems:</b></p>
+            <ul>
+              <li>Send-All (raw coordinates)</li>
+              <li>Other exploration strategies</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-box dataset">
+      <p class="section-header">2. Dataset & Testing</p>
+      <div class="section-content">
+        <ul>
+          <li>Generate <b>1,000 cached grids (4×4 to 22×22, varied density 5%-30%)</b></li>
+          <li>Mix reachable and unreachable scenarios for comprehensive coverage</li>
+          <li>Run all systems under identical constraints (64 msg, 256 bytes/packet)</li>
+          <li>Oracle validates final artifacts against union map</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-box metrics">
+      <p class="section-header">3. Metrics & Why We Measure Them</p>
+      <div class="section-content">
+        <p class="metric-item"><span class="checkmark">✓</span> <b>Correctness:</b> Oracle acceptance rate → Validates certificates work</p>
+        <p class="metric-item"><span class="checkmark">✓</span> <b>Efficiency:</b> Bytes + messages per conversation → Ensures practical overhead</p>
+        <p class="metric-item"><span class="checkmark">✓</span> <b>Interpretability:</b> Human verification time → Tests auditability feasibility</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

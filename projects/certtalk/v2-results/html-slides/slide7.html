@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #ffffff; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+}
+
+h1 {
+  color: #2c3e50;
+  font-size: 22pt;
+  margin: 10pt 0 6pt 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 12pt;
+  color: #7f8c8d;
+  margin: 0 0 8pt 0;
+}
+
+.timeline {
+  margin: 0 35pt 10pt 35pt;
+  flex: 1;
+}
+
+.milestone {
+  margin-bottom: 8pt;
+}
+
+.milestone-header {
+  background: #3498db;
+  color: #ffffff;
+  padding: 5pt 10pt;
+  border-radius: 4pt;
+  font-size: 12pt;
+  font-weight: bold;
+  margin-bottom: 4pt;
+}
+
+.milestone-header p {
+  margin: 0;
+}
+
+.milestone-content {
+  padding: 0 10pt;
+  font-size: 9pt;
+  color: #2c3e50;
+  line-height: 1.3;
+}
+
+.milestone-content ul {
+  margin: 2pt 0;
+  padding: 0 0 0 16pt;
+}
+
+.milestone-content li {
+  margin: 1pt 0;
+}
+
+.checkpoint {
+  background: #e8f8f5;
+  border-left: 4pt solid #27ae60;
+  padding: 4pt 8pt;
+  margin: 3pt 0;
+  border-radius: 3pt;
+}
+
+.checkpoint p {
+  font-size: 9pt;
+  font-weight: bold;
+  color: #27ae60;
+  margin: 0;
+}
+
+.deliverables {
+  background: #fff9e6;
+  border: 2pt solid #f39c12;
+  border-radius: 6pt;
+  padding: 8pt 12pt;
+  margin: 0 35pt 25pt 35pt;
+}
+
+.deliverables-header {
+  font-size: 13pt;
+  font-weight: bold;
+  color: #e67e22;
+  margin: 0 0 5pt 0;
+}
+
+.deliverables-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 6pt;
+  font-size: 10pt;
+}
+
+.deliverable-box {
+  background: #ffffff;
+  border: 2pt solid #f39c12;
+  border-radius: 4pt;
+  padding: 6pt;
+  text-align: center;
+}
+
+.deliverable-box p {
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0;
+}
+</style>
+</head>
+<body>
+  <h1>Timeline & Deliverables</h1>
+  <p class="subtitle">Oct 26 → Early Dec</p>
+
+  <div class="timeline">
+    <div class="milestone">
+      <div class="milestone-header">
+        <p>Week 1-2 (Oct 26 - Nov 8): Core Implementation</p>
+      </div>
+      <div class="milestone-content">
+        <ul>
+          <li>CertTalk protocol + PATH/CUT encodings</li>
+          <li>Witness bit negotiation + Oracle verification</li>
+        </ul>
+        <div class="checkpoint">
+          <p>✓ Checkpoint: 2-agent demo working</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestone">
+      <div class="milestone-header">
+        <p>Week 3-4 (Nov 9 - Nov 22): Baselines & Dataset</p>
+      </div>
+      <div class="milestone-content">
+        <ul>
+          <li>Baseline systems + 1,000 grid instances generated</li>
+          <li>Test harness for running all systems</li>
+        </ul>
+        <div class="checkpoint">
+          <p>✓ Checkpoint: All systems run on samples</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestone">
+      <div class="milestone-header">
+        <p>Week 5-6 (Nov 23 - Dec 6): Experiments & Analysis</p>
+      </div>
+      <div class="milestone-content">
+        <ul>
+          <li>Full experimental runs + Human study</li>
+          <li>Statistical analysis & paper draft</li>
+        </ul>
+        <div class="checkpoint">
+          <p>✓ Checkpoint: Results complete</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deliverables">
+    <p class="deliverables-header">Final Deliverables:</p>
+    <div class="deliverables-grid">
+      <div class="deliverable-box">
+        <p>Code (GitHub)</p>
+      </div>
+      <div class="deliverable-box">
+        <p>Dataset (1K grids)</p>
+      </div>
+      <div class="deliverable-box">
+        <p>Paper (Arxiv)</p>
+      </div>
+      <div class="deliverable-box">
+        <p>Presentation</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #ffffff; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+}
+
+h1 {
+  color: #2c3e50;
+  font-size: 22pt;
+  margin: 10pt 0 6pt 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.solution-header {
+  text-align: center;
+  font-size: 14pt;
+  font-weight: bold;
+  color: #27ae60;
+  margin: 0 0 6pt 0;
+}
+
+.certificates-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 30pt 6pt 30pt;
+  gap: 15pt;
+}
+
+.cert-box {
+  flex: 1;
+  text-align: center;
+}
+
+.cert-type {
+  font-size: 13pt;
+  font-weight: bold;
+  margin-bottom: 4pt;
+}
+
+.path-type { color: #3498db; }
+.cut-type { color: #e74c3c; }
+
+.cert-box img {
+  width: 145pt;
+  height: 145pt;
+  margin-bottom: 3pt;
+}
+
+.cert-description {
+  font-size: 12pt;
+  margin: 2pt 0;
+  color: #2c3e50;
+}
+
+.cert-size {
+  font-size: 10pt;
+  color: #7f8c8d;
+  font-style: italic;
+  margin: 0;
+}
+
+.verification-box {
+  background: #e8f8f5;
+  border: 2pt solid #27ae60;
+  padding: 6pt;
+  margin: 6pt 40pt 4pt 40pt;
+  border-radius: 4pt;
+}
+
+.verification-box h3 {
+  color: #27ae60;
+  font-size: 13pt;
+  font-weight: bold;
+  margin: 0 0 4pt 0;
+}
+
+.verification-box ul {
+  margin: 2pt 0 2pt 18pt;
+  padding: 0;
+}
+
+.verification-box li {
+  font-size: 11pt;
+  color: #2c3e50;
+  margin: 1pt 0;
+  line-height: 1.2;
+}
+
+.tagline {
+  text-align: center;
+  font-size: 12pt;
+  font-weight: bold;
+  color: #27ae60;
+  margin: 2pt 0 80pt 0;
+}
+</style>
+</head>
+<body>
+  <h1>Send the Proof, Not the Data</h1>
+
+  <p class="solution-header">✓ CertTalk: Send the certificate</p>
+
+  <div class="certificates-section">
+    <div class="cert-box">
+      <p class="cert-type path-type">If reachable → PATH_CERT</p>
+      <img src="../images/grid_path_cert.png" alt="Path certificate">
+      <p class="cert-description">"Here's the route"</p>
+      <p class="cert-size">~12 bytes</p>
+    </div>
+
+    <div class="cert-box">
+      <p class="cert-type cut-type">If blocked → CUT_CERT</p>
+      <img src="../images/grid_cut_cert.png" alt="Cut certificate">
+      <p class="cert-description">"This wall blocks us"</p>
+      <p class="cert-size">~20 bytes</p>
+    </div>
+  </div>
+
+  <div class="verification-box">
+    <h3>How to verify (no solver needed):</h3>
+    <ul>
+      <li><b>PATH:</b> Walk route cell-by-cell → check no obstacles → verify endpoints</li>
+      <li><b>CUT:</b> Check cells blocked → remove barrier → verify S can't reach G</li>
+    </ul>
+  </div>
+
+  <p class="tagline">Proof in transcript. Visual, verifiable.</p>
+</body>
+</html>

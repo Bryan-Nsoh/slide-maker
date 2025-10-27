@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #ffffff; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+}
+
+h1 {
+  color: #2c3e50;
+  font-size: 22pt;
+  margin: 10pt 0 8pt 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 13pt;
+  color: #7f8c8d;
+  margin: 0 0 12pt 0;
+}
+
+.comparison {
+  display: flex;
+  justify-content: center;
+  gap: 30pt;
+  margin: 0 40pt 6pt 40pt;
+  flex: 1;
+}
+
+.system-box {
+  background: #f8f9fa;
+  border: 3pt solid #bdc3c7;
+  border-radius: 6pt;
+  padding: 18pt;
+  flex: 1;
+  max-width: 280pt;
+  display: flex;
+  flex-direction: column;
+}
+
+.system-box.highlight {
+  background: #fff9e6;
+  border: 4pt solid #f39c12;
+  box-shadow: 0 4pt 8pt rgba(243, 156, 18, 0.3);
+}
+
+.system-name {
+  font-size: 18pt;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0 0 6pt 0;
+  text-align: center;
+}
+
+.system-name.highlight-name {
+  color: #e67e22;
+}
+
+.system-tag {
+  font-size: 11pt;
+  color: #7f8c8d;
+  margin: 0 0 10pt 0;
+  text-align: center;
+  font-style: italic;
+}
+
+.system-tagline {
+  font-size: 13pt;
+  font-weight: bold;
+  color: #3498db;
+  margin: 0 0 12pt 0;
+  text-align: center;
+}
+
+.system-flow {
+  flex: 1;
+  font-family: Arial, sans-serif;
+  font-size: 11pt;
+  line-height: 1.6;
+  color: #2c3e50;
+}
+
+.system-flow p {
+  margin: 5pt 0;
+}
+
+.arrow {
+  color: #3498db;
+  font-weight: bold;
+}
+
+.key-diff {
+  background: #e8f8f5;
+  border: 2pt solid #27ae60;
+  padding: 8pt;
+  margin: 10pt 0 0 0;
+  border-radius: 4pt;
+  text-align: center;
+  font-size: 12pt;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.key-diff.bad {
+  background: #ffe6e6;
+  border-color: #e74c3c;
+  color: #c0392b;
+}
+
+.footnote {
+  text-align: center;
+  font-size: 11pt;
+  color: #7f8c8d;
+  margin: 6pt 0 30pt 0;
+}
+</style>
+</head>
+<body>
+  <h1>What We'll Compare</h1>
+  <p class="subtitle">Systems under test</p>
+
+  <div class="comparison">
+    <div class="system-box">
+      <p class="system-name">Send-All</p>
+      <p class="system-tag">(baseline)</p>
+      <p class="system-tagline">"Dump raw data"</p>
+      <div class="system-flow">
+        <p>A <span class="arrow">→</span> All obstacle coords</p>
+        <p>B <span class="arrow">→</span> All obstacle coords</p>
+        <p>B <span class="arrow">→</span> Rebuild map</p>
+        <p>B <span class="arrow">→</span> Run pathfinder</p>
+        <p>B <span class="arrow">→</span> Answer</p>
+      </div>
+      <div class="key-diff bad">
+        <p>Opaque - need solver</p>
+      </div>
+    </div>
+
+    <div class="system-box highlight">
+      <p class="system-name highlight-name">CertTalk</p>
+      <p class="system-tag">(this work)</p>
+      <p class="system-tagline">"Send proof"</p>
+      <div class="system-flow">
+        <p>A <span class="arrow">→</span> Certificate proposal</p>
+        <p>B <span class="arrow">→</span> Verify locally</p>
+        <p>B <span class="arrow">→</span> Certificate ✓</p>
+        <p></p>
+        <p><b>Final artifact:</b> PATH or CUT proof</p>
+      </div>
+      <div class="key-diff">
+        <p>Interpretable - visual proof</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="footnote">+ Other baselines (exploration strategies) tested on same 1,000 instances</p>
+</body>
+</html>
