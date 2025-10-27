@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #ffffff; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+}
+
+h1 {
+  color: #2c3e50;
+  font-size: 22pt;
+  margin: 8pt 0 4pt 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 12pt;
+  color: #7f8c8d;
+  margin: 0 0 10pt 0;
+}
+
+.risks-container {
+  margin: 0 35pt 20pt 35pt;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18pt;
+}
+
+.risk-row {
+  display: flex;
+  gap: 15pt;
+  align-items: stretch;
+}
+
+.risk-box {
+  flex: 1;
+  border-radius: 6pt;
+  padding: 12pt 14pt;
+  display: flex;
+  flex-direction: column;
+}
+
+.risk-problem {
+  background: #fadbd8;
+  border: 2pt solid #e74c3c;
+}
+
+.risk-solution {
+  background: #d5f4e6;
+  border: 2pt solid #27ae60;
+}
+
+.risk-header {
+  font-size: 13pt;
+  font-weight: bold;
+  margin: 0 0 6pt 0;
+}
+
+.risk-problem .risk-header {
+  color: #c0392b;
+}
+
+.risk-solution .risk-header {
+  color: #27ae60;
+}
+
+.risk-content {
+  font-size: 11pt;
+  color: #2c3e50;
+  line-height: 1.4;
+}
+
+.risk-content p {
+  margin: 0;
+}
+
+.risk-content ul {
+  margin: 2pt 0 0 14pt;
+  padding: 0;
+}
+
+.risk-content li {
+  margin: 1pt 0;
+}
+
+.risk-icon {
+  font-size: 16pt;
+  margin-right: 4pt;
+}
+</style>
+</head>
+<body>
+  <h1>Risks & Mitigation</h1>
+  <p class="subtitle">Anticipated challenges and our strategies</p>
+
+  <div class="risks-container">
+    <div class="risk-row">
+      <div class="risk-box risk-problem">
+        <p class="risk-header">⚠️ Computational Scalability</p>
+        <div class="risk-content">
+          <p>Simulation caps at 22×22 grids (1,000 seeds max)</p>
+        </div>
+      </div>
+      <div class="risk-box risk-solution">
+        <p class="risk-header">✓ Mitigation</p>
+        <div class="risk-content">
+          <p>Focus on 4×4 to 22×22 range, vary density, document limits</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="risk-row">
+      <div class="risk-box risk-problem">
+        <p class="risk-header">⚠️ Timeline Pressure</p>
+        <div class="risk-content">
+          <p>Dec 6 deadline: experiments + analysis + paper</p>
+        </div>
+      </div>
+      <div class="risk-box risk-solution">
+        <p class="risk-header">✓ Mitigation</p>
+        <div class="risk-content">
+          <p>Test other baselines only once Send-All vs CertTalk work rigorously</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -22,21 +22,21 @@ async function generatePresentation() {
   pptx.subject = 'Multi-agent communication with certificates';
 
   const slideFiles = [
-    'html-slides/slide1.html',
     'html-slides/slide2.html',
+    'html-slides/slide3.html',
     'html-slides/slide4.html',
     'html-slides/slide5.html',
-    'html-slides/slide6.html',
-    'html-slides/slide7.html'
+    'html-slides/slide7.html',
+    'html-slides/slide8.html'
   ];
 
   const slideNames = [
-    'The Problem',
     'The Solution - Certificates',
+    'Breaking Epistemic Deadlock',
     'What We\'ll Compare',
     'How We\'ll Test',
-    'Our Approach',
-    'Timeline & Deliverables'
+    'Timeline & Deliverables',
+    'Risks & Mitigation'
   ];
 
   // Convert each HTML slide

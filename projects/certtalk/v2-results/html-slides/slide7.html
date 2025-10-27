@@ -12,7 +12,7 @@ body {
 h1 {
   color: #2c3e50;
   font-size: 22pt;
-  margin: 10pt 0 6pt 0;
+  margin: 8pt 0 4pt 0;
   text-align: center;
   font-weight: bold;
 }
@@ -21,76 +21,104 @@ h1 {
   text-align: center;
   font-size: 12pt;
   color: #7f8c8d;
-  margin: 0 0 8pt 0;
+  margin: 0 0 6pt 0;
 }
 
-.timeline {
-  margin: 0 35pt 10pt 35pt;
+.gantt-container {
+  margin: 0 40pt 6pt 40pt;
   flex: 1;
 }
 
-.milestone {
-  margin-bottom: 8pt;
+.gantt-header {
+  display: flex;
+  margin-bottom: 6pt;
+  padding-left: 120pt;
 }
 
-.milestone-header {
-  background: #3498db;
-  color: #ffffff;
-  padding: 5pt 10pt;
-  border-radius: 4pt;
+.week-label {
+  flex: 1;
+  text-align: center;
+  font-size: 9pt;
+  font-weight: bold;
+  color: #7f8c8d;
+}
+
+.week-label p {
+  margin: 0;
+}
+
+.gantt-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16pt;
+}
+
+.task-label {
+  width: 115pt;
   font-size: 12pt;
   font-weight: bold;
-  margin-bottom: 4pt;
-}
-
-.milestone-header p {
-  margin: 0;
-}
-
-.milestone-content {
-  padding: 0 10pt;
-  font-size: 9pt;
   color: #2c3e50;
-  line-height: 1.3;
+  padding-right: 5pt;
 }
 
-.milestone-content ul {
-  margin: 2pt 0;
-  padding: 0 0 0 16pt;
-}
-
-.milestone-content li {
-  margin: 1pt 0;
-}
-
-.checkpoint {
-  background: #e8f8f5;
-  border-left: 4pt solid #27ae60;
-  padding: 4pt 8pt;
-  margin: 3pt 0;
-  border-radius: 3pt;
-}
-
-.checkpoint p {
-  font-size: 9pt;
-  font-weight: bold;
-  color: #27ae60;
+.task-label p {
   margin: 0;
+}
+
+.gantt-timeline {
+  flex: 1;
+  display: flex;
+  position: relative;
+  height: 70pt;
+}
+
+.gantt-bar {
+  height: 70pt;
+  border-radius: 4pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11pt;
+  font-weight: bold;
+  color: #ffffff;
+  position: absolute;
+}
+
+.gantt-bar p {
+  margin: 0;
+}
+
+.phase1 {
+  background: #3498db;
+  left: 0;
+  width: 33.33%;
+}
+
+.phase2 {
+  background: #f39c12;
+  left: 33.33%;
+  width: 33.33%;
+}
+
+.phase3 {
+  background: #e74c3c;
+  left: 66.66%;
+  width: 33.34%;
 }
 
 .deliverables {
   background: #fff9e6;
   border: 2pt solid #f39c12;
   border-radius: 6pt;
-  padding: 8pt 12pt;
-  margin: 0 35pt 25pt 35pt;
+  padding: 6pt 12pt;
+  margin: 0 35pt 20pt 35pt;
 }
 
 .deliverables-header {
   font-size: 13pt;
   font-weight: bold;
   color: #e67e22;
-  margin: 0 0 5pt 0;
+  margin: 0 0 4pt 0;
 }
 
 .deliverables-grid {
@@ -117,50 +145,38 @@ h1 {
 </head>
 <body>
   <h1>Timeline & Deliverables</h1>
-  <p class="subtitle">Oct 26 → Early Dec</p>
+  <p class="subtitle">Oct 26 → Dec 6 (6 weeks)</p>
 
-  <div class="timeline">
-    <div class="milestone">
-      <div class="milestone-header">
-        <p>Week 1-2 (Oct 26 - Nov 8): Core Implementation</p>
-      </div>
-      <div class="milestone-content">
-        <ul>
-          <li>CertTalk protocol + PATH/CUT encodings</li>
-          <li>Witness bit negotiation + Oracle verification</li>
-        </ul>
-        <div class="checkpoint">
-          <p>✓ Checkpoint: 2-agent demo working</p>
+  <div class="gantt-container">
+    <div class="gantt-header">
+      <div class="week-label"><p>Week 1-2</p></div>
+      <div class="week-label"><p>Week 3-4</p></div>
+      <div class="week-label"><p>Week 5-6</p></div>
+    </div>
+
+    <div class="gantt-row">
+      <div class="task-label"><p>Core Implementation</p></div>
+      <div class="gantt-timeline">
+        <div class="gantt-bar phase1">
+          <p>Protocol + Encodings</p>
         </div>
       </div>
     </div>
 
-    <div class="milestone">
-      <div class="milestone-header">
-        <p>Week 3-4 (Nov 9 - Nov 22): Baselines & Dataset</p>
-      </div>
-      <div class="milestone-content">
-        <ul>
-          <li>Baseline systems + 1,000 grid instances generated</li>
-          <li>Test harness for running all systems</li>
-        </ul>
-        <div class="checkpoint">
-          <p>✓ Checkpoint: All systems run on samples</p>
+    <div class="gantt-row">
+      <div class="task-label"><p>Baselines & Dataset</p></div>
+      <div class="gantt-timeline">
+        <div class="gantt-bar phase2">
+          <p>1,000 grids + Test harness</p>
         </div>
       </div>
     </div>
 
-    <div class="milestone">
-      <div class="milestone-header">
-        <p>Week 5-6 (Nov 23 - Dec 6): Experiments & Analysis</p>
-      </div>
-      <div class="milestone-content">
-        <ul>
-          <li>Full experimental runs + Human study</li>
-          <li>Statistical analysis & paper draft</li>
-        </ul>
-        <div class="checkpoint">
-          <p>✓ Checkpoint: Results complete</p>
+    <div class="gantt-row">
+      <div class="task-label"><p>Experiments & Analysis</p></div>
+      <div class="gantt-timeline">
+        <div class="gantt-bar phase3">
+          <p>Full runs + Paper</p>
         </div>
       </div>
     </div>

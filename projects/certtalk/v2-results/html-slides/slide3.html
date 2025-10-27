@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #ffffff; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+}
+
+h1 {
+  color: #2c3e50;
+  font-size: 22pt;
+  margin: 8pt 0 4pt 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 12pt;
+  color: #7f8c8d;
+  margin: 0 0 10pt 0;
+}
+
+.comparison {
+  display: flex;
+  justify-content: center;
+  gap: 25pt;
+  margin: 0 30pt;
+  flex: 1;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.column-header {
+  font-size: 16pt;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0 0 8pt 0;
+  text-align: center;
+}
+
+.problem-header { color: #e74c3c; }
+.solution-header { color: #27ae60; }
+
+.scenario-text {
+  font-size: 10pt;
+  color: #2c3e50;
+  margin: 0 0 10pt 0;
+  line-height: 1.4;
+}
+
+.cell-grid {
+  display: flex;
+  gap: 6pt;
+  margin: 0 0 8pt 0;
+  justify-content: center;
+}
+
+.cell {
+  width: 45pt;
+  height: 45pt;
+  border: 2pt solid #bdc3c7;
+  border-radius: 4pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20pt;
+  font-weight: bold;
+}
+
+.cell p {
+  margin: 0;
+}
+
+.cell.verified {
+  background: #d5f4e6;
+  color: #27ae60;
+  border-color: #27ae60;
+}
+
+.cell.cannot {
+  background: #fadbd8;
+  color: #e74c3c;
+  border-color: #e74c3c;
+}
+
+.bit-row {
+  display: flex;
+  gap: 6pt;
+  margin: 0 0 4pt 0;
+  justify-content: center;
+}
+
+.bit {
+  width: 45pt;
+  height: 35pt;
+  border: 2pt solid #bdc3c7;
+  border-radius: 4pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18pt;
+  font-weight: bold;
+  background: #ecf0f1;
+  color: #2c3e50;
+}
+
+.bit p {
+  margin: 0;
+}
+
+.bit.b-vouches {
+  background: #d6eaf8;
+  border-color: #3498db;
+  color: #3498db;
+}
+
+.bit.a-vouches {
+  background: #fef5e7;
+  border-color: #f39c12;
+  color: #f39c12;
+}
+
+.label-row {
+  display: flex;
+  gap: 6pt;
+  margin: 0 0 10pt 0;
+  justify-content: center;
+}
+
+.label {
+  width: 45pt;
+  text-align: center;
+  font-size: 10pt;
+  font-weight: bold;
+  color: #7f8c8d;
+}
+
+.label p {
+  margin: 0;
+}
+
+.rule-box {
+  background: #e8f8f5;
+  border: 2pt solid #27ae60;
+  border-radius: 4pt;
+  padding: 8pt;
+  margin: 8pt 0 0 0;
+}
+
+.rule-box p {
+  margin: 3pt 0;
+  font-size: 10pt;
+  color: #2c3e50;
+  line-height: 1.3;
+}
+
+.rule-box ul {
+  margin: 3pt 0 0 0;
+  padding: 0 0 0 16pt;
+}
+
+.rule-box li {
+  margin: 2pt 0;
+  font-size: 10pt;
+  color: #2c3e50;
+  line-height: 1.3;
+}
+
+.result-box {
+  background: #fadbd8;
+  border: 2pt solid #e74c3c;
+  border-radius: 4pt;
+  padding: 8pt;
+  margin: 8pt 0 0 0;
+}
+
+.result-box p {
+  margin: 3pt 0;
+  font-size: 10pt;
+  color: #2c3e50;
+  line-height: 1.3;
+}
+
+.result-box ul {
+  margin: 3pt 0 0 0;
+  padding: 0 0 0 16pt;
+}
+
+.result-box li {
+  margin: 2pt 0;
+  font-size: 10pt;
+  color: #2c3e50;
+  line-height: 1.3;
+}
+
+.tagline {
+  text-align: center;
+  font-size: 11pt;
+  font-weight: bold;
+  color: #27ae60;
+  margin: 6pt 0 20pt 0;
+}
+</style>
+</head>
+<body>
+  <h1>Breaking Epistemic Deadlock</h1>
+  <p class="subtitle">How agents certify with partial knowledge</p>
+
+  <div class="comparison">
+    <div class="column">
+      <p class="column-header problem-header">The Problem</p>
+      <p class="scenario-text">A proposes cut with 6 cells. B can only verify 3 of them:</p>
+
+      <div class="cell-grid">
+        <div class="cell verified"><p>✓</p></div>
+        <div class="cell verified"><p>✓</p></div>
+        <div class="cell cannot"><p>✗</p></div>
+        <div class="cell cannot"><p>✗</p></div>
+        <div class="cell verified"><p>✓</p></div>
+        <div class="cell cannot"><p>✗</p></div>
+      </div>
+
+      <p class="scenario-text" style="text-align: center; margin-bottom: 8pt;"><b>What B sees</b></p>
+
+      <div class="result-box">
+        <p><b>Without attribution:</b></p>
+        <ul>
+          <li>B must NACK (can't verify 3 cells)</li>
+          <li>A sends PROBE</li>
+          <li>Deadlock: 5+ messages</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="column">
+      <p class="column-header solution-header">The Solution</p>
+      <p class="scenario-text">Witness bits (1 per cell) encode WHO vouches:</p>
+
+      <div class="bit-row">
+        <div class="bit b-vouches"><p>1</p></div>
+        <div class="bit b-vouches"><p>1</p></div>
+        <div class="bit a-vouches"><p>0</p></div>
+        <div class="bit a-vouches"><p>0</p></div>
+        <div class="bit b-vouches"><p>1</p></div>
+        <div class="bit a-vouches"><p>0</p></div>
+      </div>
+
+      <div class="label-row">
+        <div class="label"><p>B</p></div>
+        <div class="label"><p>B</p></div>
+        <div class="label"><p>A</p></div>
+        <div class="label"><p>A</p></div>
+        <div class="label"><p>B</p></div>
+        <div class="label"><p>A</p></div>
+      </div>
+
+      <p class="scenario-text" style="text-align: center; margin-bottom: 8pt;"><b>Who attests each cell</b></p>
+
+      <div class="rule-box">
+        <p><b>B's acceptance rule:</b></p>
+        <p>Accept cell if: <b>(I see blocked) OR (bit=0)</b></p>
+        <ul>
+          <li>All 6 cells pass ✓</li>
+          <li>Fast path: 3 messages</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <p class="tagline">Cost: 1 byte (6 bits) • Benefit: Eliminates probe round (~200 bytes)</p>
+</body>
+</html>
